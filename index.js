@@ -71,6 +71,7 @@
 // username= window.prompt("what is your username")
 // console.log(username)
 
+// html  input box way, 
 // let username
 // document.getElementById("mySubmit").onclick = function() {
 //     username = document.getElementById("mytext").value
@@ -80,7 +81,7 @@
 
 // <-- type conversion -->
 // let age = window.prompt("how old are you?")
-// age = Number(age)      // it convert the given function into number type
+// age = Number(age)      // it convert the given value  into number type
 //                    // without this function the addition operation is converted into concatination operation due to the input age is in the type of string 
 // age+=1
 // console.log(age , typeof age)
@@ -374,11 +375,419 @@
 
 // <-- string methods -->
 
-let username = "Brocode   "
+// let username = "   Brocode   " 
 // console.log(username.charAt(0))  // it gives a character in the string at a specific position
 // console.log(username.indexOf("B"))  // it gives index of a specific character
 // console.log(username.length)       // it gives the length of the string
-console.log(username.trim())         // it trim the the whitespace at end of the string
+// console.log(username.trim())         // it trim the the whitespace at starting and ending of the string
+// console.log(username.toUpperCase())
+// console.log(username.toLowerCase())
+// console.log(username.repeat())         // it repeat the string by you enterned number of time if you didn't enter any number it does not repeat
+// console.log(username.startsWith("B"))    // check the string is starts with specific letter or not it returns a boolen value -> true or not
+// console.log(username.endsWith(" "))   //  it check the string is ends with a specific character or not it also return a boolean value
+
+// practices of string methods |\/
+
+//const text = document.getElementById("text1").value --> X it wrong  X because it was out side of the button click that means it get the value as soon as (or when the) page is loads that means before the user even types anything that time the input probably empty at that time so that our functions are cann't proparly done
+// const enter = document.getElementById("enter")
+// const result = document.getElementById("result")
+// enter.onclick = function() {
+//     const text = document.getElementById("text1").value
+//     if(text.startsWith("N")){
+//         result.textContent = "Hello Nandana"
+//     }else if(text.startsWith("S")){
+//         result.textContent= "Hello Salina"
+//     }else if(text.startsWith("V")){
+//         if(text.endsWith("j")){
+//             result.textContent="Hello Valsaraj"
+//         }else if(text.endsWith("a")){
+//             result.textContent="Hello Vandana"
+//         }else{
+//             result.textContent="Hi"
+//         }
+//     }else{
+//         result.textContent = "Namasthe"
+//     }
+// }
 
 
-//             
+//  <-- String slicing -->  creating a substring from a portion of another string  string.slice(start,end)    
+// const fullName = "Nandana Rayaroth"
+// let firstName = fullName.slice(0)   //  Nandana Rayaroth -> 0 to above
+// let firstName = fullName.slice(0,1)    //  N ->first element   
+// let firstName = fullName.slice(3)    // dana Rayaroth -> 3 rd intex and above 
+// let firstName = fullName.slice(-1)      // last index 
+// let firstName = fullName.slice(-2)      // second last index
+// let lastName = fullName.slice(8,16)
+// console.log(firstName)
+// console.log(lastName)
+
+// const fullName = "Broseph Code"
+
+// const firstName = fullName.slice(0,fullName.indexOf(" "))
+// const lastName = fullName.slice(fullName.indexOf(" ")+1)
+// console.log(firstName)
+// console.log(lastName)
+
+// for practice |\/
+
+// const enter = document.getElementById("enter")
+// const result = document.getElementById("result")
+// const result2 = document.getElementById("result2")
+
+// enter.onclick = function() {
+//     const text= document.getElementById("text1").value
+//     const firstName = text.slice(0,text.indexOf(" "))
+//         result.textContent = `Your first name is, ${firstName}`
+//     const lastName = text.slice(text.indexOf(" ")+1,)
+//         result2.textContent = `your last name is, ${lastName}`
+
+//         console.log(text.slice(3,10))    // characters between 3 and 10 including 3
+
+// }
+
+
+// const email = "Bro@gmail.com"
+
+// let username = email.slice(0,email.indexOf("@"))
+// let extension =email.slice(email.indexOf("@")+1)
+
+// console.log(username)
+// console.log(extension)
+
+// const enter = document.getElementById("enter")
+// const result = document.getElementById("result")
+// const result2 = document.getElementById("result2")
+// enter.onclick = function() {
+//     const text= document.getElementById("text1").value
+//     const username = text.slice(0,text.indexOf("@"))
+//     const extension = text.slice(text.indexOf("@")+1)
+//     result.textContent = `${username}`
+//     result2.textContent = `${extension}`
+// }
+
+
+// <-- Method Chaining --> calling a method  after another in a continuous line 
+
+// no method chaining|\/
+// let username = window.prompt("enter your username")
+
+// username = username.trim()
+// let letter = username.charAt(0)
+// letter = letter.toUpperCase()
+
+// let extraChar = username.slice(1)    // by slice(1) gets all elements of username expect first element that means 0th intex
+// extraChar = extraChar.toLowerCase()
+// username = letter + extraChar
+// console.log(username)
+
+// with method chaining |\/
+// let username = window.prompt("Enter your username")
+// username = username.trim().charAt(0).toUpperCase() + username.slice(1).toLowerCase()       // each method returns a value and next method is called on that returned value.
+// console.log(username)      // cleaner and shorter code,no need extra variables
+// demerit when debuging we can't inspect intermediate rsult easily 
+
+
+// <-- Logical operators -->  used to combine or manipulate boolean values 
+//                  AND = &&, OR = ||, NOT = ! 
+
+// const temp = 200
+
+// if(temp > 0 && temp <= 30){
+//     console.log("The weather is GOOD")
+// }else{
+//     console.log("the wether is not good")
+// }
+
+// let ncc = false
+// let nss = true
+
+// if (ncc || nss){
+//     console.log("YOu have greate experince")
+// }else{
+//     console.log("you have normal experince")
+// }
+
+// const isSunny = true
+
+// if (! isSunny){
+//     console.log("It is Sunny")
+// }else{
+//     console.log("it is cloudy")
+// }
+
+// let ncc = false
+// if(! ncc){
+//     console.log("you can participeate elaction campion")
+// }else{
+//     console.log("you can't")
+// }
+
+
+// <-- assignment operator --> 
+// = assignment operator
+// == camparison operator (compare [if values are equal,don't care about the datatype )
+// === strict equality operator (compare if values & datattype are equall)
+// != inequality operation or notequal to operation
+// !== strict inequality operator
+
+// const PI = 3.14
+
+// if(PI == "3.14") {   // == it only consider the value not consider datatype
+//     console.log("That is pi")
+// }else{
+//     console.log("that is not pi")
+// }
+
+// const PI = 3.14
+// // if(PI === "3.14"){    // it consider data type also so it is false
+// if(PI === 3.14){       // now it is true
+//     console.log("it is PI")
+// }else{
+//     console.log("it is not PI")
+// }
+
+// const PI = 3.14
+// if(PI != "3.14") {           // equal  it does not consider the datatype
+//     console.log("this is not pi")
+// }else{
+//     console.log("this is pi")
+// }
+
+// const PI = 3.14
+// // if(PI !== "3.14"){              // returns false becuase it consider the data type
+// if(PI !== 3.14){
+//     console.log("this is not pi")
+// }else{
+//     console.log("this is pi")
+// }
+
+
+// <-- While loop --> repeat some code when the condition is true
+
+// without while
+// let username = ""
+// if(username === "") {
+//     console.log("you didn't enter your name")
+// }
+// else{
+//     console.log(`Hello ${username}`)
+// }
+
+// with while
+// let username = ""
+// while(username = 'hello'){
+//     console.log("hi")
+// }
+
+// let loggedIn = false
+// let username
+// let password
+// while(!loggedIn) {
+//     username = window.prompt(`Enter your username`)
+//     password = window.prompt(`Enter your password`)
+//     if(username === "myUsername" && password === "myPassword"){
+//         loggedIn = true
+//         console.log("you are logged in!")
+//     }
+//     else{
+//         console.log("Invalid username or password")
+//     }
+// }
+
+// <-- Do while -->
+// let username
+// do{
+//     username = window.prompt("enter your name")
+// }while(username === "" || username === null)
+// console.log(`hello ${username}`)
+
+
+// <-- for loop -->  repeat some code a limited amount of times
+
+// for( let i=0; i<=20; i++){
+//     if(i == 13) {
+//         // continue         // jumbping statement it jum next statement
+//         break             // it jump entirely from the loop
+//     }
+//     else{
+//         console.log(i)
+//     }
+// }
+
+
+//  NUMBER GUESSING GAME
+// const minNum = 1
+// const maxNum = 100
+// const answer = Math.floor(Math.random() *(maxNum - minNum + 1))
+// // const answer = Math.floor(Math.random() * 100)
+
+// let attempts = 0
+// let guess 
+// let running = true
+
+// while(running){
+//     guess = window.prompt(`Guess a number between ${minNum} ${maxNum}`)
+//     guess = Number(guess)
+//     if(isNaN(guess)){
+//         window.alert("please enter a valid number")
+//     }
+//     else if(guess<minNum || guess > maxNum){
+//         window.alert("please enter a valid number")
+//     }
+//     else{
+//         attempts++
+//         if(guess < answer){
+//             window.alert("too low try again")
+//         }
+//         else if(guess > answer){
+//             window.alert("too high try again")
+//         }
+//         else{
+//             window.alert(`CORRECT! The answer was ${answer}.It took you ${attempts} attempts`)
+//             running = false
+//         }
+//     }
+    
+// }
+
+
+// <-- FUNCTIONS -->
+// a section of reusable code,declare code once use it whenver you want ,call the function to execute that code.
+
+// function happyBirthday() {
+//     console.log("Happy Birthday")
+//     console.log("happyy bday")
+//     console.log("happy happy biday")
+//     console.log("happy happy happy bday")
+// }
+// happyBirthday()
+
+// function happyBirthday(age,name) {    // parameters
+//     console.log("haappiee")
+//     console.log("bdayyyy")
+//     console.log(`happy ${age}th bithday ${name}`)
+// }
+// happyBirthday(20,"Nandana")        // arguments
+
+// function add(x,y){
+//     let result = x + y
+//     return result
+// }
+// function substract(x,y){
+//     return x-y
+// }
+// console.log(add(2,3))
+// console.log(substract(8,2))
+
+// function isValid (email){
+//     if(email.includes("@")){            // it check a specific charater is present in a string and rturn true or false
+//         return true
+//     }
+//     else{
+//         return false
+//     }
+// }
+
+// console.log(isValid("brocode@gmail.com"))
+
+// <-- variable Scope --> where a variable is accessible (local & blobal)
+
+// let x = 3
+// function function1() {
+//     let x = 1
+//     console.log(x)   // 1 first local scope
+// }
+// function function2() {
+//     let x=2
+//     console.log(x)    // 2 first local scope
+// }
+
+
+// TEM CONVERSION
+
+// const textBox = document.getElementById("textBox")
+// const toFahrenheit = document.getElementById("toFahranheit")
+// const toCelsius =document.getElementById("toCelsius")
+// const result = document.getElementById("result")
+// let temp
+
+// function convert(){
+//     if(toFahrenheit.checked){
+//        temp = Number(textBox.value)
+//        temp = temp * 9 / 5 + 32
+//        result.textContent = temp.toFixed(1) + "°F"   // it is a built-in method with one precision 
+//     }
+//     else if(toCelsius.checked){
+//         temp = Number(textBox.value)
+//         temp = (temp - 32) * (5/9)
+//         result.textContent = temp.toFixed(1) + "°C"
+//     }
+//     else{
+//         result.textContent="select a unit"
+//     }
+// }
+//  
+
+
+// <-- ARRAY -->   a variable like structure that can hold more than 1 value
+
+let fruits = ["apple", "orange","banana"]
+
+// fruits[2] = "coconut"// it replace value at index 2 (banana) into coconut
+// fruits.push("coconut")   // push new value array at the end of array 
+// fruits.pop()           // it pop the last value of array
+// fruits.unshift("mango")   // it add mango at the starting of the array
+// fruits.shift()  //  it remove the first element from array
+
+// console.log(fruits[0])
+// console.log(fruits[1])
+// console.log(fruits[2])
+// console.log(fruits[3])
+
+// let numOfFruits = fruits.length
+// console.log(numOfFruits)
+// let index = fruits.indexOf("apple")
+// console.log(index)
+
+// for(let i = 0; i < fruits.length; i+=1){
+//     console.log(fruits[i])
+// }
+
+// for(let i = fruits.length -1; i>=0; i--){
+//     console.log(fruits[i])
+// }
+
+// console.log(fruits.sort())         // by default it sort array in its order
+// console.log(fruits.sort().reverse())
+
+//<--2D ARRAY --> multidimensional array that stores a matrix of data in rows and columns. Ussseful for games, spreadsheets, or representing images
+// [x, o, x]
+// [o, x, o]
+// [x, o, x]
+
+const matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+                ]
+matrix[0][0] = 'x'
+matrix[0][1] = 'o'
+matrix[0][2] = 'x'
+
+matrix[1][0] = 'O'
+matrix[1][1] = 'X'
+matrix[1][2] = 'O'
+
+matrix[2][0] = 'x'
+matrix[2][1] = 'o'
+matrix[2][2] = 'x'
+
+for(let row of matrix){
+    const rowString = row .join(' ')
+    console.log(rowString)
+}
+
+//        
+ 
+ 
