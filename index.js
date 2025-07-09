@@ -732,7 +732,7 @@
 
 // <-- ARRAY -->   a variable like structure that can hold more than 1 value
 
-let fruits = ["apple", "orange","banana"]
+// let fruits = ["apple", "orange","banana"]
 
 // fruits[2] = "coconut"// it replace value at index 2 (banana) into coconut
 // fruits.push("coconut")   // push new value array at the end of array 
@@ -766,28 +766,182 @@ let fruits = ["apple", "orange","banana"]
 // [o, x, o]
 // [x, o, x]
 
-const matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-                ]
-matrix[0][0] = 'x'
-matrix[0][1] = 'o'
-matrix[0][2] = 'x'
+// const matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+//                 ]
+// matrix[0][0] = 'x'
+// matrix[0][1] = 'o'
+// matrix[0][2] = 'x'
 
-matrix[1][0] = 'O'
-matrix[1][1] = 'X'
-matrix[1][2] = 'O'
+// matrix[1][0] = 'O'
+// matrix[1][1] = 'X'
+// matrix[1][2] = 'O'
 
-matrix[2][0] = 'x'
-matrix[2][1] = 'o'
-matrix[2][2] = 'x'
+// matrix[2][0] = 'x'
+// matrix[2][1] = 'o'
+// matrix[2][2] = 'x'
 
-for(let row of matrix){
-    const rowString = row .join(' ')
-    console.log(rowString)
+// for(let row of matrix){
+//     const rowString = row .join(' ')
+//     console.log(rowString)
+// }
+
+//      <-- SPREAD OPERATOR -->  ... allows an iterable such as an array or string to be expanded into seperate elements (unpacks the elements)
+// used for copying arrays or object, combining array/object, expanding elements
+// spread operator used for spread values out, it used in array,object,function calls
+
+// let number = [1,2,3,4,5]
+// let maximum = Math.max(...number)
+// we can also let maxmimum = [...numbers, 6,7]  adding elements
+// let minimum = Math.min(...number)
+// console.log(maximum)
+
+// let fruits= ["apple", "orange", "banana"]
+// console.log(fruits)
+// let vegetables = ["carrots", "celery", "potatoes"]
+// console.log(vegetables)
+
+// let foods = [...fruits, ...vegetables]   // it include both arrays 
+// console.log(foods)
+
+// let foods = [...fruits, ...vegetables, "eggs" ,"milk"] // it add two items to the end of the array
+// console.log(foods)
+
+
+// <-- REST PARAMETER -->  (...rest) allow a function work with a variable number of arguments by bunding them into an array 
+// spread = expand an array into seperate elements 
+// rest = bundles seperate elements into an array
+// rest parameter used for to gather multople values into one it used in function parameter list
+
+// function openFrige(...foods) {
+//     console.log(foods)
+// }
+// const food1 = "pizza"
+// const food2 = "hamburger"
+// const food3 = "hotdog"
+// const food4 = "sushi"
+// const food5 = "ramen"
+
+// const food1 = "pizza"            
+// const food2 = "hamburger"
+// const food3 = "hotdog"
+// const food4 = "sushi"
+// const food5 = "ramen"
+
+// const food1 = "pizza"
+// const food2 = "hamburger"
+// const food3 = "hotdog"
+// const food4 = "sushi"
+// const food5 = "ramen"
+
+// openFrige(food1, food2, food3, food3, food4, food5)
+
+//    rest parameter uses the same syntax as the spread operator (...), but it is not the same thing.Rest is used in function parameters to collect values. Spread is used in function calls,arrays,or objects to expand values.
+
+// function sum(...numbers){
+
+//     let result = 0
+//     for(let number of numbers ){
+//         result += number
+//     }
+//     return result
+// }
+
+// const total = sum(1,2,3,4,5)
+// console.log(`your total is ${total}`)
+
+// function getAvg(...numbers){
+//     let result = 0
+//     for(let number of numbers){
+//         result+= number
+//     }
+//     return result /numbers.length
+// }
+// const avgg = getAvg(75,100)
+// console.log(avgg)
+
+
+// function combineString(...strings){
+//     return strings.join(" ")
+// }
+
+// const fulName = combineString("Mr.","Akash","k","v")
+// console.log(fulName)
+// const fullName = combineString("Mrs.","Nandana","Rayaroth")
+// console.log(fullName)
+
+// function rollDice(){
+//     const numOfDice = document.getElementById("numOfDice").value
+//     const diceResult = document.getElementById("diceResult")
+//     const diceImage = document.getElementById("diceImages")
+//     const values = []
+//     const images = []
+
+//     for (let i=0; i<numOfDice; i++){
+//         const value = (Math.random() *6) +1
+//         values.push(value)
+//         images.push(`<img src="dice-six-faces-one.png`,alt(`${value}`))
+//     }
+//     diceResult.textContent = `dice: ${values.join(`, `)}`
+//     diceImage.innerHTML = images.join(``)
+// }
+
+// same
+// function rollDice(){
+//     const numOfDice = document.getElementById("numOfDice").value
+//     const diceResult = document.getElementById("diceResult")
+//     const diceImage = document.getElementById("diceImages")
+//     const values = []
+//     const images = []
+
+//     for (let i=0; i<numOfDice; i++){
+//         const value = (Math.random() *6) +1
+//         values.push(value)
+//         images.push(`<img src="dice-six-faces-one.png`,alt(`${value}`))
+//     }
+//     diceResult.textContent = `dice: ${values.join(`, `)}`
+//     diceImage.innerHTML = images.join(``)
+// }
+
+
+// Random password generator
+function generatePassword(length,includeLowercase, includeUppercase, includeSymbols){
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz"
+    const UppercaseChars = "ABCDEFHIJKLMNOPQRSTUVWXYZ"
+    const numberChars = "0123456789"
+    const symbolChars = "!@#$%^&*()_+-="
+    let allowedChars = ""
+    let password = ""
+    allowedChars += includeLowercase ? lowercaseChars : ""
+    allowedChars += includeUppercase ? UppercaseChars : ""
+    allowedChars += includeNumber ? numberChars : ""
+    allowedChars += includeSymbols ? symbolChars : ""
+
+    if (length <=0){
+        return `(password length must be at least 1)`
+    }
+    if(allowedChars.length === 0){
+        return `(At least 1 set of character needs to be selected)`
+    }
+
+    for(let i=0; i<length; i++){
+        const randomIndex = Math.random()*allowedChars.length
+        password += allowedChars[randomIndex]
+    }
+    return password;
 }
+const passwordLength =12
+const includeLowercase = true
+const includeUppercase = true
+const includeNumber = true
+const includeSymbols = true
+generatePassword(passwordLength, 
+                includeLowercase, 
+                includeUppercase, 
+                includeNumber, 
+                includeSymbols)
+console.log(`generated pass: ${password}`)
 
-//        
- 
- 
+// 
