@@ -907,41 +907,410 @@
 
 
 // Random password generator
-function generatePassword(length,includeLowercase, includeUppercase, includeSymbols){
-    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz"
-    const UppercaseChars = "ABCDEFHIJKLMNOPQRSTUVWXYZ"
-    const numberChars = "0123456789"
-    const symbolChars = "!@#$%^&*()_+-="
-    let allowedChars = ""
-    let password = ""
-    allowedChars += includeLowercase ? lowercaseChars : ""
-    allowedChars += includeUppercase ? UppercaseChars : ""
-    allowedChars += includeNumber ? numberChars : ""
-    allowedChars += includeSymbols ? symbolChars : ""
+// function generatePassword(length,includeLowercase, includeUppercase, includeSymbols){
+//     const lowercaseChars = "abcdefghijklmnopqrstuvwxyz"
+//     const UppercaseChars = "ABCDEFHIJKLMNOPQRSTUVWXYZ"
+//     const numberChars = "0123456789"
+//     const symbolChars = "!@#$%^&*()_+-="
+//     let allowedChars = ""
+//     let password = ""
+//     allowedChars += includeLowercase ? lowercaseChars : ""
+//     allowedChars += includeUppercase ? UppercaseChars : ""
+//     allowedChars += includeNumber ? numberChars : ""
+//     allowedChars += includeSymbols ? symbolChars : ""
 
-    if (length <=0){
-        return `(password length must be at least 1)`
-    }
-    if(allowedChars.length === 0){
-        return `(At least 1 set of character needs to be selected)`
-    }
+//     if (length <=0){
+//         return `(password length must be at least 1)`
+//     }
+//     if(allowedChars.length === 0){
+//         return `(At least 1 set of character needs to be selected)`
+//     }
 
-    for(let i=0; i<length; i++){
-        const randomIndex = Math.random()*allowedChars.length
-        password += allowedChars[randomIndex]
-    }
-    return password;
+//     for(let i=0; i<length; i++){
+//         const randomIndex = Math.random()*allowedChars.length
+//         password += allowedChars[randomIndex]
+//     }
+//     return password;
+// }
+// const passwordLength =12
+// const includeLowercase = true
+// const includeUppercase = true
+// const includeNumber = true
+// const includeSymbols = true
+// generatePassword(passwordLength, 
+//                 includeLowercase, 
+//                 includeUppercase, 
+//                 includeNumber, 
+//                 includeSymbols)
+// console.log(`generated pass: ${password}`)
+
+
+// <-- CALLBACK -->  a function that is passed as an argument to another function
+//    used to handle asynchronous operations:
+//      1. Reading a file
+///     2. Network requessts
+///     3. Interacting with databases
+
+// hello()
+
+// function hello(callback) {
+//     // setTimeout(function() {
+//         console.log("Hello")
+//     // }, 3000)
+//     callback()
+// }
+// function wait(){
+//     console.log("wait")
+// }
+
+// function goodbye(){
+//     console.log("Goodbye!")
+// }
+// sum(displayConsole, 1,2)
+// function sum(callback, x, y){
+//     let result = x + y
+//     callback(result)
+// }
+
+// function displayConsole(result){
+//     console.log(result)
+//     document.getElementById("myH1").textContent = result
+// }
+
+// // function displayPage(result){
+// //     document.getElementById("myH1").textContent = result
+// // }
+
+// <-- FOR EACH --> method used to iterate over the elements of an an array and apply a specified function (callback) to each element 
+// array.forEach(callback)
+
+// let numbers = [1, 2, 3, 4, 5]
+
+// numbers.forEach(double)
+// numbers.forEach(triple)
+// numbers.forEach(square)
+// numbers.forEach(cube)
+// numbers.forEach(display)
+// function display(element){
+//     console.log(element)
+// }
+
+// function double(element, index, array){
+//     array[index] = element * 2
+// }
+// function triple(element,index, array){
+//     array[index] = element * 3
+// }
+// function square(element,index,array){
+//     array[index] = Math.pow(element,2)
+// }
+// function cube(element,index,array){
+//     array[index] = Math.pow(element,3)
+// }
+
+// let fruits = ["apple", "orange", "banana", "coconut"]
+// let vegetables = ["TOMATO", "CUCUMBER","CARROT", "POTATO"]
+// // vegetables.forEach(lowerCase)
+// vegetables.forEach(Captitalize)
+// // fruits.forEach(upperCase)
+
+// fruits.forEach(Captitalize)
+// fruits.forEach(display)
+// vegetables.forEach(display)
+
+// function upperCase(element, index, array){
+//     array[index] = element.toUpperCase()
+// }
+// function lowerCase(element, index, array){
+//     array[index] = element.toLowerCase()
+// }
+// function display(element){
+//     console.log(element)
+// }
+// function Captitalize(element, index, array){
+//     array[index] = element.charAt(0).toUpperCase() + element.slice(1).toLowerCase()
+// }
+
+
+// <-- MAP METHOD -->        it accepts a callback and applies that fuction to each element of an array , then return a new array , map and foreach methods are very similar but the main difference is map returns a new array
+
+
+// const numbers = [1, 2, 3, 4, 5]
+// const squares = numbers.map(square)
+// const cubes = numbers.map(cube)
+
+// console.log(cubes)
+// console.log(squares)
+// function square(element){
+//     return Math.pow(element, 2)
+// }
+
+// function cube(element){
+//     return Math.pow(element, 3)
+// }
+
+// const students = ["Spongebob", "Patrick", "Squidward", "Sandy"]
+// const studentsUpper = students.map(upperCase)
+
+// const studentsLower = students.map(lowerCase)
+// const stdcrt = students.map(first)
+// console.log(stdcrt)
+// console.log(studentsUpper)
+// console.log(studentsLower)
+// function upperCase(element){
+//     return element.toUpperCase()
+// }
+// function lowerCase(element){
+//     return element.toLowerCase()
+// }
+// function first(element){
+//     return element.charAt(0).toUpperCase() + element.slice(1).toLowerCase()
+// }
+
+// const dates = ["2024-1-10", "2025-2-20", "2026-3-30"]
+// const formattedDates = dates.map(formatDates)
+// console.log(formattedDates)
+
+// function formatDates(element){
+//     const parts = element.split("-")  // it uses to break the string into an array eg: "2024-1-10" become ["2024", "1", "10"]
+//     return `${parts[1]}/${parts[2]}/${parts[0]}`
+// }
+
+
+//  <-- FILTER METHOD -->  it creates a new array by filtering out elements                                                                          
+
+// let number = [1,2,3,4,5,6,7]
+// let evenNums = number.filter(isEven)
+// let oddNums = number.filter(isOdd)
+// console.log(oddNums)
+// console.log(evenNums)
+
+// function isEven(element){
+//     return element % 2 === 0
+// }
+// function isOdd(element){
+//     return element % 2 !== 0
+// }
+
+// const age = [16,17,18,18, 19,20, 60]
+// const adult = age.filter(isAdult)
+
+// console.log(adult)
+
+// function isAdult(element){
+//     return element >= 18
+// }
+
+// practice |\/
+
+// const age = [16,17,18,19,20,60]
+// console.log(age.map(isAdult))
+// function isAdult(Element){        // bye using map it does not filter the already existing array but it create new array with same number of elements based on old array and condition  here the result is boolean array
+//     return Element >= 18
+// }
+
+// const words = ["apple", "orange", "banana", "kiwi", "pomegranate", "coconut"]
+// console.log(words.filter(wordlength))
+// console.log(words.filter(wordlengthmin))
+// function wordlength(element){
+//     return element.length >= 6
+// }
+
+// function wordlengthmin(element){
+//     return element.length < 6
+// }
+
+// <-- REDUCE -->   reduce the elments of an array to a single value
+
+// const price = [5,30,10,25,15,20]
+
+// const total = price.reduce(sum)
+// console.log(`$${total.toFixed(2)}`)
+
+// function sum(accumulator, element){
+//     return accumulator + element
+// }
+
+
+// differnet types of function usages
+// <-- FUNCTION DECLARATION -->  define a reusable block of code that perform a specific task
+// function hello(){
+//     console.log("Hello")
+// }
+
+// <-- FUNCTION EXPRESSIONS -->  a way to define function as values or variables
+// const hello = function(){
+//     console.log("Hello")
+// }
+// setTimeout(function(){
+//     console.log("Hello")
+// },3000)
+
+// const number = [1,2,3,4,5,6]
+// const square = number.map(function(element){
+//     return Math.pow(element,2)
+// })
+// const cubes = number.map(function(element){
+//     return Math.pow(element, 3)
+// })
+// const evenNums = number.filter(function(element){
+//     return element % 2 === 0
+// })
+// const oddNums = number.filter(function(element){
+//     return element % 2 !== 0
+// })
+// const total = number.reduce(function(accumulator,element){
+//     return accumulator+element
+// })
+// console.log(square)
+// console.log(cubes)
+// console.log(evenNums)
+// console.log(oddNums)
+// console.log(total)
+
+
+// <-- ARROW FUNCTIONS --> a way to write function expression good for simple functions that you use only once
+// (parameter) => some code
+
+// const hello = (name,age) => {
+    
+//     console.log(`Hello ${name}`);
+//     console.log(`you are ${age} years old`);
+    
+
+    
+// }
+// hello("Bro" , 25)
+
+// setTimeout(hello, 3000)
+// function hello(){
+//     console.log("Hello")
+// }
+
+// const numbers = [1,2,3,4,5,6]
+// const square = numbers.map((Element) => Math.pow(Element,2))
+// const cubes = numbers.map((Element) => Math.pow(Element,3))
+// const evenNums = numbers.filter((Element) => Element % 2 === 0)
+// const oddNums = numbers.filter((Element) => Element % 2 !== 0)
+// const total = numbers.reduce((accumulator,Element) => accumulator+Element)
+
+// console.log(square)
+// console.log(cubes)
+// console.log(evenNums)
+// console.log(oddNums)
+// console.log(total)
+
+
+// <-- OBJECT --> A colleection of related properties and/or methods can represent real world objeccts like (people, products, places)
+//  object = {key:value,
+//              function()}
+
+    // const person ={                   // object
+    //     firstName: "Spongebob",
+    //     lastName: "Squarepants",
+    //     age: 30,
+    //     isEmployed: false,
+    //     sayHello: function(){console.log("Hi! I am Spongebob!")},
+    //     eat: function(){console.log("I am eating a Krabby Patty")}
+    // }
+    // const person2= {
+    //     firstName: "Partrick",
+    //     lastName: "Star",
+    //     age: 42,
+    //     isEmployed: true,
+    //     sayHello: () => console.log("Hi! I am Parrick"),
+    //     eat: ()=>console.log("I am eating roasted beef")
+    // }
+
+    // console.log(person.firstName)          // accssing object elements by dot(.)
+    // console.log(person.lastName)
+    // console.log(person.age)
+    // console.log(person.isEmployed)
+    // person.sayHello()  
+    // person2.sayHello()  
+    // person.eat()
+    // person2.eat()
+    // console.log(person2.firstName)
+    // console.log(person2.lastName)
+    // console.log(person2.age)
+    // console.log(person2.isEmployed)
+
+
+// <-- THIS -->    refernce to the object where THIS is used (the object depends on the immediate context)
+// person.name = this.name
+// this keyword doesn't work with arrow function
+
+// const person1 ={
+//     name: "Spongebob",
+//     favfood: "hamburgers",
+//     sayHello: function(){console.log(`Hi! I am ${this.favfood}`)},
+//     eat: function(){console.log(`${this.name} is eating ${this.favfood}`)}
+// }
+// const person2 = {
+//     name: "Patrick",
+//     favfood: "pizza",
+//     sayHello: function(){console.log(`Hi! I am ${this.favfood}`)},
+//     eat: function(){console.log(`${this.name} is eating ${this.favfood}`)}
+//     // eat: () => {console.log(`${this.name} is eating ${this.favfood}`)}   // here this is doesn't work
+// }
+
+// person1.eat()
+// person2.eat()
+
+
+// <-- CONSTRUCTOR -->  a special method for defining the properties and methods of objects
+
+
+// function car (make,model, year, color){
+//     this.make = make
+//     this.model = model
+//     this.year = year
+//     this.color = color
+// }
+// we can also write like this 
+function car (a, b, c, d){
+    this.make = a
+    this.model = b
+    this.year = c
+    this.color = d
 }
-const passwordLength =12
-const includeLowercase = true
-const includeUppercase = true
-const includeNumber = true
-const includeSymbols = true
-generatePassword(passwordLength, 
-                includeLowercase, 
-                includeUppercase, 
-                includeNumber, 
-                includeSymbols)
-console.log(`generated pass: ${password}`)
 
-// 
+const car1 = new car("ford", "Mustang", 2024, "red")
+const car2 = new car("Chevrolet", "Camaro",2025,"blue")
+const car3 = new car("Dodge","Charger", 2026, "silver")
+console.log(car1.make)
+console.log(car1.model)
+console.log(car1.year)
+console.log(car1.color)
+
+console.log(car2.make)
+console.log(car2.model)
+console.log(car2.year)
+console.log(car2.color)
+
+console.log(car3.make)
+console.log(car3.model)
+console.log(car3.year)
+console.log(car3.color)
+// const car1 ={
+//     make: "Ford",
+//     model: "Mustang",
+//     year: 2024,
+//     color:"red",
+//     drive: function(){console.log(`You drive the ${this.model}`)}
+// }
+// const car2 ={
+//     make: "Chevrolet",
+//     model: "Camaro",
+//     year: 2025,
+//     color:"blue",
+//     drive: function(){console.log(`you drive the ${this.model}`)}
+// }
+// const car3 ={
+//     make: "Dodge",
+//     model: "Charger",
+//     year: 2026,
+//     color: "silver",
+//     drive: function(){console.log(`you drive the ${this.model}`)}
+// }
+//            
