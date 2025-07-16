@@ -1259,39 +1259,40 @@
 
 
 // <-- CONSTRUCTOR -->  a special method for defining the properties and methods of objects
+// it is basically a special function used to create and initialized objects. it act like a blueprint for creating multiple objects with the same structure and behavior.
 
 
-// function car (make,model, year, color){
+// function car (make,model, year, color){        // this is a constructor function  constructor name is usually starts with capital letter
 //     this.make = make
 //     this.model = model
 //     this.year = year
 //     this.color = color
 // }
 // we can also write like this 
-function car (a, b, c, d){
-    this.make = a
-    this.model = b
-    this.year = c
-    this.color = d
-}
+// function car (a, b, c, d){
+//     this.make = a
+//     this.model = b
+//     this.year = c
+//     this.color = d
+// }
 
-const car1 = new car("ford", "Mustang", 2024, "red")
-const car2 = new car("Chevrolet", "Camaro",2025,"blue")
-const car3 = new car("Dodge","Charger", 2026, "silver")
-console.log(car1.make)
-console.log(car1.model)
-console.log(car1.year)
-console.log(car1.color)
+// const car1 = new car("ford", "Mustang", 2024, "red")    // creacting object to the constrcuctor
+// const car2 = new car("Chevrolet", "Camaro",2025,"blue")
+// const car3 = new car("Dodge","Charger", 2026, "silver")
+// console.log(car1.make)
+// console.log(car1.model)
+// console.log(car1.year)
+// console.log(car1.color)
 
-console.log(car2.make)
-console.log(car2.model)
-console.log(car2.year)
-console.log(car2.color)
+// console.log(car2.make)
+// console.log(car2.model)
+// console.log(car2.year)
+// console.log(car2.color)
 
-console.log(car3.make)
-console.log(car3.model)
-console.log(car3.year)
-console.log(car3.color)
+// console.log(car3.make)
+// console.log(car3.model)
+// console.log(car3.year)
+// console.log(car3.color)
 // const car1 ={
 //     make: "Ford",
 //     model: "Mustang",
@@ -1313,4 +1314,672 @@ console.log(car3.color)
 //     color: "silver",
 //     drive: function(){console.log(`you drive the ${this.model}`)}
 // }
-//            
+//    
+
+// function Car (make, model, year, color){
+//     this.make = make,
+//     this.model = model,
+//     this.year= year,
+//     this.color = color
+// }
+
+// const car1 = new Car ("benzee", "musting", 2027, "black")
+// console.log(car1.make)
+// console.log(car1.model)
+// console.log(car1.year);
+// console.log(car1.color);
+
+
+// <-- CLASS --> itt provide  a m0re sructure and cleaner way to work with objeccts compared to trsditional constructor functiona eg: static keyword, encapsulation, inheritance
+
+// class Products {
+//     constructor(name,price){
+//         this.name= name,
+//         this.price = price
+//     }
+//     displayProduct(){
+//         console.log(`Product: ${this.name}`)
+//         console.log(`Price: ${this.price.toFixed(2)}`)
+//     }
+//     calculateTotal(saleTax){
+//         return this.price + (this.price * saleTax)
+//     }
+// }
+
+// const saleTax = 0.05
+
+// const Product1 = new Products("shirt", 19.99)
+// const Product2 = new Products("pants", 22.50)
+// Product1.displayProduct()
+// console("hello")
+// console.log("hi")
+// console.log("helloo")
+
+
+// <--STATIC-->   static keyword that dfines properties or methods that belong to a class itself rather than the objects created from that class (class owns anything static, not the objects)
+// static keyword used inside of a class to define methods or properties that belong to the class itself, it does not need object to access static methods we can just access classname.staticmethodname() 
+
+// class MathNull{
+//     static PI = 3.14
+
+//     static getDiameter(radius){
+//         return radius *  2
+//     }
+//     static  getCircuumfernce(radius){
+//         return 2* this.PI * radius
+//     }
+// }
+// console.log(MathNull.PI)
+// console.log(MathNull.getDiameter(10))
+// console.log(MathNull.getCircuumfernce(10).toFixed(2))
+// 
+
+
+// class User{
+//     static userCoumt = 0
+
+//     constructor(username){
+//         this.username = username
+//         User.userCoumt ++
+//     }
+// }
+// const user1 = new User("Spongeob")
+// console.log(user1.username)
+// console.log(User.userCoumt)
+
+
+// // <-- INHERITANCE -->  allows  a new class to inherit properties and methods from a parent class to child class 
+// // it helps with code reusability
+
+// class Animal{
+//     alive = true
+
+//     eat(){
+//         console.log(`this ${this.name} is eating`)
+//     }
+//     sleep(){
+//         console.log(`this ${this.name} is sleeping`)
+//     }
+// }
+// class Rabbit extends Animal{
+//     name = "rabbit"
+//     run(){
+//         console.log(`this ${this.name} is running`)
+//     }
+// }
+// class Fish extends Animal{
+//     name = "rabbit"
+// }
+// class Hawk extends Animal{
+//     name = "hawk"
+// }
+
+// const rabbit = new Rabbit()
+// console.log(rabbit.alive)
+// rabbit.eat()
+// rabbit.sleep()
+// rabbit.run()
+// const fish = new Fish()
+// const hawk = new Hawk()
+// console.log(fish.alive)
+// fish.eat()
+// fish.sleep()
+// // fish.run()    // here it become error becouse run method from rabit class
+
+//    <-- Super key word--> keyword is used in classes to call the constructor or access the properties and methods of a parent(superclass)
+// this = this object
+// super = this parent   
+
+// class Animal{
+//     constructor(name,age){
+//         this.name = name
+//         this.age = age
+//     }
+//     move(speed){
+//         console.log(`The ${this.name} move at a speed of  ${speed}mph`)
+//     }
+// }
+// class Rabbit extends Animal{
+//     constructor(name,age,runSpeed){
+//         // this.name = name        // we must use super instead of this
+//         // this.age = age
+
+//         super(name, age)
+//         this.runSpeed = runSpeed
+//     }
+//     run(){
+//         console.log(`This  ${this.name} can run`)
+//         super.move(this.runSpeed)
+//     }
+// }
+// class Fish extends Animal{
+//     constructor(name,age,swimSpeed){
+//         super(name,age)
+//         this.swimSpeed = swimSpeed
+//     }
+//     swim(){
+//         console.log(`This ${this.name} can swim`)
+//         super.move(this.swimSpeed)
+//     }
+// }
+// class Hawk extends Animal{
+//     constructor(name,age,flyspeed){
+//         super(name,age)
+//         this.flyspeed = flyspeed
+//     }
+//     fly(){
+//         console.log(`This ${this.name} can fly`)
+//         super.move(this.flyspeed)
+//     }
+// }
+
+// const rabbit = new Rabbit("rabbit", 1,25)
+// // console.log(rabbit.name)
+// // console.log(rabbit.age)
+// // console.log(rabbit.runSpeed)
+// const fish = new Fish("fish", 2, 12)
+// const hawk = new Hawk("hawk", 3, 50)
+
+// rabbit.run()
+// fish.swim()
+// hawk.fly()
+
+
+// <-- getter -->   special method that makes a property  readable   ->it used to access or read property it look like a function bbut is accessed like a variable
+// <-- setter --> special method that make a property writable    ->  it used to change or write a propety. it allows to control or validate how values are set
+// validate and modify a value when reading/writing a property
+
+// class Rectangle{
+//     constructor(width,height){
+//         this.width = width
+//         this.height = height
+//     }
+//     set width(newwidth){
+//         if(newwidth > 0){
+//             this._width = newwidth  // private variable
+//         }
+//         else{
+//             console.error("width must be a poitive number")
+//         }
+//     }
+//     set height(newheight){
+//         if(newheight > 0){
+//             this._height = newheight
+//         }
+//         else{
+//             console.error("height must be a positive number")
+//         }
+//     }
+//     get width(){
+//         return this._width
+//     }
+//     get height(){
+//         return this._height
+//     }
+//     get area(){
+//         return this._width * this._height
+//     }
+// }
+// // const rectangle = new Rectangle( -10000, "pizza")
+// const rectangle = new Rectangle(3,4)
+// console.log(rectangle.width)
+// console.log(rectangle.height)
+// console.log(rectangle.area)
+
+
+// class Person{
+//     constructor(firstName, lastName, age){
+//         this.firstName = firstName
+//         this.lastName = lastName
+//         this.age = age
+//     }
+//     set firstName(newfirstName){
+//         if(typeof newfirstName === "string" && newfirstName.length > 0){
+//             this._firstName = newfirstName
+//         }
+//         else{
+//             console.error("first name must be a non empty string")
+//         }
+//     }
+//     get firstName(){
+//         return this._firstName
+//     }
+//     set lastName(newlastName){
+//         if(typeof newlastName === "string" && newlastName.length > 0){
+//             this._lastName = newlastName
+//         }
+//         else{
+//             console.error("last name must be an non empty string ")
+//         }
+//     }
+//     get lastName(){
+//         return this._lastName
+//     }
+//     set age(newage){
+//         if(typeof newage === "number" && newage > 0){
+//             this._age = newage
+//         }
+//         else{
+//             console.error("age must be a positive number")
+//         }
+//     }
+//     get age(){
+//         return this._age
+//     }
+// }
+// // const person = new Person(420, 69, "pizza")
+// const person = new Person("Spongebob", "Squarepants",30)
+// console.log(person.firstName)
+// console.log(person.lastName)
+// console.log(person.age)
+
+
+// <-- destructuring --> extract values from array and object then assign them to variable in a convenient way 
+// [] = to perform array destructuring 
+// {} = to perform object destrucuring 
+
+// eg:1 swap the value of teo variables
+// let a = 1
+// let b = 2;  // this ; is important it help to understand end of the variable let otherwise it all consider as a variable it couse to an error , instead of last of the ; at this line we can also write ; at the starting of the next line from right sider , it is related to  temporal dead zone from gpt 
+// [a, b] = [b, a]
+// console.log(a)
+// console.log(b)
+
+// eg:2 swap 2 elemtns in an array
+// const color = ["red", "green", "blue", "black", "white"];
+// [color[0], color[4]] = [color[4], color[0]];
+// console.log(color)
+
+//eg:3 assign array elements to variable
+// const colors = ["red", "green", "blue", "black", "white"]
+// const [firstColor, secondColor, thirdColor, ...extraColors] = colors
+// console.log(firstColor)
+// console.log(secondColor)
+// console.log(thirdColor)
+// console.log(extraColors)
+
+// const person1 = {
+//     firstName: "Spongebob",
+//     lastName: "SquarePants",
+//     age: 30,
+//     job: "Fry Cook"
+// }
+
+// const person2 = {
+//     firstName: "Patrick",
+//     lastName: "star",
+//     age: 34
+// }
+// // const {firstName, lastName, age, job} = person1
+// // console.log(firstName)
+// // console.log(lastName)
+// // console.log(age)
+// // console.log(job)
+
+// const {firstName, lastName, age, job="Unemployed"} = person2  // destructuring here
+// console.log(firstName)
+// console.log(lastName)
+// console.log(age)
+// console.log(job)
+
+//eg:5 destruturing in function parameter
+
+// function displayPerson({firstName, lastName, age, job="Unemployed"}){ // destruturing here
+//     console.log(`name: ${firstName} ${lastName}`)
+//     console.log(`age: ${age}`)
+//     console.log(`job: ${job}`)
+// }
+
+// const person1 = {
+//     firstName: "Spongebob",
+//     lastName:"SquarePants",
+//     age:30,
+//     job: "fry cook"
+// }
+// const person2 = {
+//     firstName: "Patrick",
+//     lastName: "star",
+//     age: 34
+// }
+// displayPerson(person1)
+// displayPerson(person2)
+
+
+// <--NESTED OBJECTS -->  objects inside of other objects.
+// it allows you to represent more complex data structures
+// child object is enclosed by a Parent object 
+
+// const person = {
+//     fullName: "Spongebob Squarepants",
+//     age: 30,
+//     isStudent: true,
+//     hobbies : ["karate", "jellyfishing","cooking"],
+//     address: {
+//         street: "124 Conch st.",
+//         city: "Bikini Bottom",
+//         country: "Int.water"
+//     }
+// }
+// console.log(person.fullName)
+// console.log(person.age)
+// console.log(person.isStudent)
+// // console.log(person.hobbies[0])
+// for (const bal in person.hobbies){
+//     console.log(person.hobbies[bal])
+// }
+// // console.log(person.address.street)  // instead of this three lines we can use for loop
+// // console.log(person.address.city)
+// // console.log(person.address.country)
+
+// for(const property in person.address){
+//     console.log(person.address[property])
+// }
+
+
+// class Person{
+//     constructor(name, age, ...address){
+//         this.name = name
+//         this.age = age
+//         this.address = new Address(... address)
+//     }
+// }
+// class Address{
+//     constructor(street, city, country){
+//         this.street = street
+//         this.city = city
+//         this.country = country
+//     }
+// }
+// const person1 = new Person("Spongebob", 30, "124 Conch st.", "Bikini Bottom", "Int.waters" )
+// const person2 = new Person("Patrick", 37, "128 Conch St.", "Bikini Bottom" ,"Int. Waters")
+// const person3 = new Person("Squidward", 45, "126 Conch St.", "Bikini Bottom" ,"Int. waters")
+// console.log(person1.name)
+// console.log(person1.age)
+// console.log(person1.address)
+// console.log(person3.address.street)
+
+
+// <-- array of object -->
+
+// const fruits = [{name: "apple", color: "red", calories: 95}, 
+//                 {name: "orange", color: "orange", calories: 45}, 
+//                 {name: "banana", color: "yellow", calories: 105}, 
+//                 { name:"coconut", color:"white", calories: 159}, 
+//                 {name: "pineapple", color:"yellow", calories:37}]
+
+// fruits.push({name: "grapges", color: "purple", calories: 62})
+// console.log(fruits)
+// fruits.pop()
+// console.log(fruits)
+// fruits.splice(1,2)   // removing element at 1 and 2 index
+// console.log(fruits)
+// console.log(fruits[2].calories)
+
+// fruits.forEach(fruits => console.log(fruits.name)) // foreach
+
+// const fruitname = fruits.map(fruits => fruits.name)   // map
+// console.log(fruitname)
+
+// const yellowfruit = fruits.filter(fruit =>  fruit.color === "yellow")   // filter
+// console.log(yellowfruit)
+
+// const lowcalfruit = fruits.filter(fruit => fruit.calories < 100)
+// console.log(lowcalfruit)
+
+// const highCalfruit = fruits.filter(fruits => fruits.calories >= 100)
+// console.log(highCalfruit)
+
+
+// const maxFruit = fruits.reduce((max,fruit) => fruit.calories > max.calories ? fruit : max)
+// console.log(maxFruit.calories)
+
+// const minFruit = fruits.reduce( (min, fruit) => fruit.calories < min.calories ? fruit : min)
+// console.log(minFruit)
+
+
+// <-- sort --> method used to sort elements of an array in place. Sorts elements as strings in lexicographic order, not alphabetical lexicographic = (alphabet + number + symbol) as string
+
+// let fruits = ["apple", "orange", "banana", "coconut", "pineapple"]
+// fruits.sort()
+// console.log(fruits)
+
+// let number = [1,10,2,9,3,8,4,7,5,6]
+// number.sort((a,b) => a - b)
+// console.log(number)
+
+// const people = [{name: "Spongebob", age: 30, gpa: 3.0},
+//                 {name:"Patrick", age: 37, gpa: 1.5},
+//                 {name: "Squidward", age: 51, gpa: 2.5},
+//                 {name: "Sandy" , age: 27, gpa: 4.0}
+// ]
+// // people.sort((a,b) => a.age - b.age)  
+// people.sort((a,b) => a.name.localeCompare(b.name))
+// console.log(people)
+
+// const cards = ['A', 2,3,4,5,6,7,8,9,10,'J','Q','K']
+// // cards.sort(() => Math.random() - 0.5)
+// // console.log(cards)
+
+// shuffle(cards)
+// console.log(cards)
+
+// functionshuffle(Array){
+//     for(let i = array -length - 1; i> 0; i--){
+//         const random = Math.floor(Math.random() * (i+1))
+
+//         [array[i], array[random]] = [array[random], array[i]]
+//     }
+// }
+
+
+// <-- DATE OBJECT --> object that contain values that represent dates and times these date objects can be change and formatted
+
+// const date = new Date()
+// console.log(date)    // print the current date and time 
+
+//to customize date -> Date(year, month, day, hour, minute, second, ms)
+// const date = new Date(2024, 0, 1, 2, 3, 4, 5)
+// const date = new Date("2024-01-02T12:00:00Z")
+// console.log(date)
+
+// const date = new Date(170000000000)
+// console.log(date)
+
+// const date = new Date()
+// const year = date.getFullYear() // to get current  full yr
+// const month = date.getMonth()  // to get  current month
+// const day = date.getDate()     // to get current date of day
+// const hour = date.getHours()   //  to get current hour
+// const minutes = date.getMinutes() // to get current minute
+// const seconds = date.getSeconds() // to get current second
+// const dayOfweek = date.getDay()   // to get current day of week
+
+// console.log(year)
+// console.log(month)
+// console.log(day)
+// console.log(hour)
+// console.log(minutes)
+// console.log(seconds)
+// console.log(dayOfweek)
+
+// const date = new Date()
+// date.setFullYear(2024)
+// date.setMonth(0)
+// date.setDate(1)
+// date.setHours(2)
+// date.setMinutes(3)
+// date.setSeconds(4)
+
+// console.log(date)
+
+// const date1 =new Date("2023-12-31")
+// const date2 = new Date("2024-01-01")
+
+// if (date2 > date1){
+//     console.log("HAPPY NEW YEAR")
+// }
+
+
+// <-- CLOSURE --> a function defined inside of another function, the inner function has access to the variables and scope of the outer function. Allow for private variable and state maintenance used frequsntly in JS frameworks: React, Vue, Angular 
+// we can sncapsulate our variables as private
+
+// function outer(){
+//     let message = "hello"
+//     function inner(){
+//         console.log(message)
+//     }
+//     inner()
+// }
+
+// // message = "goodbye" // it doesn't work because of closure
+// outer()
+
+// function increment(){
+//     let count = 0
+//     count ++ 
+//     console.log(`count increased to ${count}`)
+// }
+
+// increment()
+// increment()
+
+// function createCounter(){
+//     let count = 0
+//     function increment(){
+//         count ++
+//         console.log(`count increassed to ${count}`)
+//     }
+//     function getCount(){
+//         return count
+//     }
+//     return {increment ,getCount}
+// }
+
+// const counter = createCounter()
+// counter.increment()
+// counter.increment()
+
+// function  createGame(){
+
+//     let score = 0
+//     function increaseScore(points){
+//         score += points
+//         console.log(`+${points}pts`)
+//     }
+//     function decreaseScore(points){
+//         score -= points
+//         console.log(`-${points} pts`)
+//     }
+//     function getScore(){
+//         return score
+//     }
+//     return {increaseScore,decreaseScore,getScore}
+// }
+// const game = createGame()
+
+// game.increaseScore(5)
+// game.increaseScore(6)
+// game.decreaseScore(3)
+// console.log(`the final score is ${game.getScore()}pts`)
+
+
+// <-- setTimeout() -->  it is a function in javascript that allows you to schedule the execution of a function after an amount of time (milliseconds). times are approximate (various based on the workload of the javascript runtime enviornment) 
+//                       setTimeout(callback, delay)
+
+// function sayHello(){
+//     window.alert("Hello")
+// }
+// setTimeout(sayHello, 3000)
+
+// setTimeout(function(){window.alert("Hello")} , 3000)  // anonimouse function
+
+// setTimeout(() => window.alert("Hello") , 3000)  // arrow function
+
+
+// let timeoutId
+
+// function startTimer(){
+//     timeoutId = setTimeout(() => window.alert("Hello"), 3000)
+//     console.log("STARTER")
+// }
+// function clearTimer(){
+//     clearTimeout(timeoutId)
+//     console.log("CLEARED")
+// }
+
+
+// <-- console.time() tool that allows you to measure the time it takes for a section of code or process to execute great for identifying performance "bottlenecks"
+// console.time("label")
+// console.timeEnd("label")
+// basically it here to used to identify how much time take to excute the code 
+
+
+// console.time("test")
+// for( let i = 0; i <10; i++){
+//     //do some code
+//     console.log("hi")
+// }
+// console.timeEnd("test")
+
+// function loadData(){
+//     console.time("loadData")
+//     for(let i=0; i < 100000; i++){
+//         // pretend to load some data
+//     }
+//     console.timeEnd("loadData")
+// }
+// function processData(){
+//     console.time("process")
+//     for(let i = 0; i < 10000000; i++){
+
+//     }
+//     console.timeEnd("process")
+// }
+// loadData()
+// processData()
+
+// toLocaleStrng() - returns s string with a language sensitive representation of a number
+// Intl.Numberformat() - international number formatt
+// number.toLocaleString("locale", {options})
+
+// 'locale' = specify the language(undefined = default set in browser)
+// 'options' = object with formatting options
+
+// let number = 123456.7789
+// number = number.toLocaleString("en-US")
+// number = number.toLocaleString("en-US")
+// number = number.toLocaleString("de-DE")
+// number = number.toLocaleString(undefined)
+// number = number.toLocaleString("en-US", {style: "currency", currency: "USD" })  // unitedd state -> dollar formatt
+// number = number.toLocaleString("hi-IN", {style: "currency", currency: "INR"})  //  indian rupee formatt
+// number = number.toLocaleString("de-DE", {style: "currency", currency: "EUR"})   // germnay -> uro formmatt
+// console.log(number)
+
+
+function calculate(){
+    const totalAmount = document.getElementById("total-amount")
+    const PrincipalInput = document.getElementById("Principal")
+    const rateInput = document.getElementById("rate")
+    const yearsInput = document.getElementById("years")
+
+    let Principal = Number(PrincipalInput.value)
+    let rate = Number(rateInput.value / 100)
+    let years = Number(yearsInput.value)
+
+    if(Principal < 0 || isNaN(Principal)){
+        Principal = 0
+        PrincipalInput.value = 0
+    }
+    if(rate < 0 || isNaN(rate)){
+        rate = 0
+        rateInput.value = 0
+    }
+    if(years < 0 || isNaN(years)){
+        years = 0
+        yearsInput.value = 0
+    }
+
+    const result = Principal * Math.pow((1 + rate / 1), 1 * years)
+    totalAmount.textContent = result.toLocaleString(undefined,{style: "currency",currency: "USD"})
+}
+///              
