@@ -196,7 +196,7 @@ input{
     margin: 5px;
 } */
 
-body{
+/* body{
     font-family: Arial,sans-serif;
     background-color: hsl(0, 0%, 95%);
 }
@@ -246,9 +246,31 @@ button:hover{
 #total-amount{
     color:  hsl(120, 100%, 35%);
     font-weight: bold;
+} */
+
+
+body{
+    background-image: url(central-park.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    margin: 0;
+}
+#clock-container{
+    display: flex;
+    justify-content: center;    /* horizontaliy center*/
+    align-items: center;      /* vertically center */
+    height: 100vh;
+}
+#clock{
+    font-family: monospace ;
+    font-size: 6.5rem;
+    font-weight: bold;
+    text-align: center;
+
 }
 /*
-        
-                              
+    
+                                
 
 */

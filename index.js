@@ -1956,30 +1956,30 @@
 // console.log(number)
 
 
-function calculate(){
-    const totalAmount = document.getElementById("total-amount")
-    const PrincipalInput = document.getElementById("Principal")
-    const rateInput = document.getElementById("rate")
-    const yearsInput = document.getElementById("years")
+// function calculate(){
+//     const totalAmount = document.getElementById("total-amount")
+//     const PrincipalInput = document.getElementById("Principal")
+//     const rateInput = document.getElementById("rate")
+//     const yearsInput = document.getElementById("years")
 
-    let Principal = Number(PrincipalInput.value)
-    let rate = Number(rateInput.value / 100)
-    let years = Number(yearsInput.value)
+//     let Principal = Number(PrincipalInput.value)
+//     let rate = Number(rateInput.value / 100)
+//     let years = Number(yearsInput.value)
 
-    if(Principal < 0 || isNaN(Principal)){
-        Principal = 0
-        PrincipalInput.value = 0
-    }
-    if(rate < 0 || isNaN(rate)){
-        rate = 0
-        rateInput.value = 0
-    }
-    if(years < 0 || isNaN(years)){
-        years = 0
-        yearsInput.value = 0
-    }
+//     if(Principal < 0 || isNaN(Principal)){
+//         Principal = 0
+//         PrincipalInput.value = 0
+//     }
+//     if(rate < 0 || isNaN(rate)){
+//         rate = 0
+//         rateInput.value = 0
+//     }
+//     if(years < 0 || isNaN(years)){
+//         years = 0
+//         yearsInput.value = 0
+//     }
 
-    const result = Principal * Math.pow((1 + rate / 1), 1 * years)
-    totalAmount.textContent = result.toLocaleString(undefined,{style: "currency",currency: "USD"})
-}
-///              
+//     const result = Principal * Math.pow((1 + rate / 1), 1 * years)
+//     totalAmount.textContent = result.toLocaleString(undefined,{style: "currency",currency: "USD"})
+// }
+///             
