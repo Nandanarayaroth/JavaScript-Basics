@@ -375,42 +375,42 @@ button:hover{
    height: 100vh;
    margin: 0;
 } */
- body{
+ /* body{
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
- }
-#calculator{
+ } */
+/* #calculator{
     font-family: Arial,sans-serif;
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
-    max-width: 500px;
+    max-width: 500px; */
     /* width: 100%;
     padding: 20px; */
-    overflow: hidden;
-}
-#display{
+    /* overflow: hidden;
+} */
+/* #display{
     width: 100%;
-    padding: 20px;
+    padding: 20px; */
     /* padding-bottom: 50px; */
-    font-size: 5rem;
+    /* font-size: 5rem;
     text-align: left;
     border: none;
     background-color: hsl(0, 0%, 20%);
     color: white;
-}
-#keys{
+} */
+/* #keys{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 25px;
 
-}
-button{
+} */
+/* button{
     width: 100px;
-    /* aspect-ratio: 1 / 1; it is used to maintain a fixed proportion between the height and width */ 
+    aspect-ratio: 1 / 1; it is used to maintain a fixed proportion between the height and width 
     height: 100px;
     border-radius: 50px;
     border: none;
@@ -420,18 +420,41 @@ button{
     font-weight: bold;
     cursor: pointer;
     
-}
-button:hover{
+} */
+/* by using felx */
+/* #keys{
+    display: flex;
+    flex-wrap: wrap;   */
+    /* flex-wrap : wrap that allows the flex item(button) to move to next line if there is not enough space in a row */
+    /* gap: 10px;
+    padding: 25px;
+    justify-content: center;
+} */
+/* button { */
+    /* flex: 0 0 calc(25% - 10px);    4 buttons per row, minus gap */
+    /* height: 100px;
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+/* button:hover{
     background-color: hsl(0, 0%, 40%);
-}
-button:active{
-    background-color: hsl(0, 0%, 50%); 
+} */
+/* button:active{
+    background-color: hsl(0, 0%, 50%);  */
     /* it applies styles only when the user is actively pressing it */
-}
+/* } */
 /* button:focus{           it applies when then it is focused (user click the button , tab )
     outline: 2px solid white;
 } */
-.operator-btn{
+/* .operator-btn{
     background-color: hsl(35, 100%, 55%);
 }
 .operator-btn:hover{
@@ -439,8 +462,11 @@ button:active{
 }
 .operator-btn:active{
     background-color: hsl(35, 100%, 85%);
-}
+} */
 
+body{
+    font-size: 1.7em;
+}
 /*         
     
 */

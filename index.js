@@ -2197,23 +2197,108 @@
 
 
 // calculator program
-const display = document.getElementById("display")
+// const display = document.getElementById("display")
 
-function appendToDisplay(input){
-    display.value += input   // display.value = display.value + input
-}
+// function appendToDisplay(input){
+//     display.value += input   // display.value = display.value + input
+// }
 
-function clearDisplay(){
-    display.value = ""
-}
+// function clearDisplay(){
+//     display.value = ""
+// }
 
-function calculate(){
-    try{
-        display.value = eval(display.value)
-    }
-    catch(error){
-        display.value = "Error"
-    }
-}
+// function calculate(){
+//     try{
+//         display.value = eval(display.value)
+//     }
+//     catch(error){
+//         display.value = "Error"
+//     }
+// }
 
-///                                
+
+
+// <-- DOM -->   Document Object Model
+// object{} that represent the page you see in the web browser and provides you wtih an API to interact with it. web browser constructs the DOM when it loads an html document and structures all the elements in a tree- like representation. 
+// javascript can access the DOM to dynamically change the content, structure, and style of a web page.
+
+
+// document.title = "My website"
+// document.body.style.backgroundColor = "hsl(0,0%,15%)"
+// console.dir(document)
+
+// const username = "Bro Code"
+// const welcomeMsg = document.getElementById("welcome-msg")
+// welcomeMsg.textContent += username === "" ? 'Guest' : username
+// console.dir(document)
+
+// <-- Element selectors --> method used to target and manipulate HTML elements They allow you to select on or multiple HTML elements from the DOM (Document Object Model)
+// 1.document.getElementById()  // element or null
+// 2.document.getElementsClassName() // HTML collection
+// 3.document.getElementsByTagName() // html collection
+//4. document.querySelector()      //  first matching element or null
+//5.document.querySelectorAll()   // nodelist
+
+// 1
+// const myHeading = document.getElementById("my-heading")
+// myHeading.style.backgroundColor = "yellow"
+// myHeading.style.textAlign = "center"
+// console.log(myHeading)
+
+// //2
+// const fruits = document.getElementsByClassName("fruits")
+// console.log(fruits)
+// Array.from(fruits).forEach(fruit => {
+//     fruit.style.backgroundColor = "yellow"
+// })
+
+//3
+// const helements = document.getElementsByTagName("h4")
+// const lielements = document.getElementsByTagName("li")
+// helements[1].style.backgroundColor = "yellow"
+// console.log(helements)
+
+// for(let helement of helements){
+//     helement.style.backgroundColor = "yellow"
+// }
+
+// for(let lielement of lielements){
+//     lielement.style.backgroundColor = "lightgreen"
+// }
+
+
+// fruits[0].style.backgroundColor = "yellow"
+// for(let fruit of fruits){
+//     fruit.style.backgroundColor = "yellow"
+// }
+
+
+// const helements = document.getElementsByTagName("h4")
+// const lielements = document.getElementsByTagName("li")
+// Array.from(helements).forEach(helement => {
+//     helement.style.backgroundColor = "yellow"
+// })
+// Array.from(lielements).forEach(lielement => {
+//     lielement.style.backgroundColor = "lightgreen"
+// })
+
+
+//4
+// const element = document.querySelector(".fruits") // here . means selecting an elements by its class name , same as #fruits means elements with id fruits, if only fruits tht means <fruits>
+// element.style.backgroundColor = "yellow"
+
+// const element = document.querySelector("h4")
+// element.style.backgroundColor = "yellow"
+
+//5
+// const fruits = document.querySelectorAll(".fruits")
+// fruits[1].style.backgroundColor = "yellow"
+
+// const fruit = document.querySelectorAll(".fruits")
+// fruit[2].style.backgroundColor = "yellow"
+
+const food = document.querySelectorAll("li")
+food.forEach(food => {
+    food.style.backgroundColor = "yellow"
+})
+//        
