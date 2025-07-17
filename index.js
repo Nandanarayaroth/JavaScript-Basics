@@ -1982,4 +1982,238 @@
 //     const result = Principal * Math.pow((1 + rate / 1), 1 * years)
 //     totalAmount.textContent = result.toLocaleString(undefined,{style: "currency",currency: "USD"})
 // }
-///             
+
+
+// digital clock program
+// function updateClock(){
+//     const now = new Date()  // it stores the current date and time 
+//     const hours = now.getHours().toString().padStart(2,0)// getHours() returns hour 0-23 tostring convert number into string then padStart(2,0) it make the string always 2 digits if that doesnot have two digit then padd 0 at starting of the digit
+//     const minutes = now.getMinutes().toString().padStart(2,0) //
+//     const second = now.getSeconds().toString().padStart(2,0)
+//     const timeString = `${hours} : ${minutes} : ${second}`
+//     document.getElementById("clock").textContent = timeString
+
+// }
+// updateClock()
+//  **padSart**  is only works on string  .it is a string method in javascript 
+// .padStart(targetLength, padstring) it add padding like 0 to the begining of a string until it reaches the desired length
+
+// function Timer(){
+//     const now = new Date()
+//     let hour = now.getHours()
+//     const meridiem = hour >= 12 ? "PM" : "AM"
+//     hour = hour % 12 || 12   // it convert 24 hr format into 12 hr format
+//     hour = hour.toString().padStart(2,0)
+//     const minute = now.getMinutes().toString().padStart(2,0)
+//     const second = now.getSeconds().toString().padStart(2,0)
+//     const result = `${hour}:${minute}:${second} ${meridiem}`
+//     document.getElementById("crt-time").textContent = result
+// }
+// Timer()
+// setInterval(Timer,1000)
+
+
+// stopwatch
+// const display =document.getElementById("display")
+// let timer = null
+// let startTime = 0
+// let elapsedTime = 0
+// let isRunning = false
+
+// function start(){
+//     if(!isRunning){
+//         startTime = Date.now() - elapsedTime  // Date.now() gives the current time in millisecond
+//         timer = setInterval(update, 10)
+//         isRunning = true
+//     }
+//     // console.log(startTime)
+// }
+
+// function stop(){
+//     if(isRunning){
+//         clearInterval(timer)  // it stop the reapeted update
+//         elapsedTime = Date.now() - startTime 
+//         isRunning = false
+//     }
+// }
+
+// function reset(){
+//     clearInterval(timer)    //  stop  if it's running
+//     startTime = 0
+//     elapsedTime = 0
+//     isRunning = false
+//     display.textContent = "00:00:00:00"
+// }
+
+// function update(){
+//     const currentTime = Date.now()
+//     elapsedTime = currentTime - startTime
+//     let hours = Math.floor(elapsedTime / (1000 * 60 * 60))
+//     let minute = Math.floor( elapsedTime / (1000 * 60 ) % 60)
+//     let second = Math.floor(elapsedTime / 1000 % 60)
+//     let milliseconds = Math.floor(elapsedTime % 1000 / 10)
+
+//     hours = String(hours).padStart(2,"0")
+//     minute = String(minute).padStart(2,"0")
+//     second = String(second).padStart(2,"0")
+//     milliseconds = String(milliseconds).padStart(2,"0")
+
+//     display.textContent = `${hours}:${minute}:${second}:${milliseconds}`
+// }
+
+
+// practice |\/
+// const display = document.getElementById("display")
+// let isRunning = false
+// let startTime = 0
+// let elapsedTime = 0
+// let timer = null
+
+// function start(){
+//     if(!isRunning){
+//         startTime = Date.now() - elapsedTime
+//         timer = setInterval(update, 10)
+//         isRunning = true
+//     }
+// }
+// function stop(){
+//     if(isRunning){
+//         clearInterval(timer)
+//         elapsedTime = Date.now() - startTime
+//         isRunning = false
+//     }
+// }
+// function reset(){
+//     clearInterval(timer)
+//     startTime = 0
+//     elapsedTime = 0
+//     isRunning = false
+//     display.textContent = "00:00:00:00"
+// }
+// function update(){
+//     const currentTime = Date.now()
+//     elapsedTime = currentTime - startTime
+//     let hours = Math.floor(elapsedTime / (1000 * 60 * 60))
+//     let minutes = Math.floor(elapsedTime / (1000 * 60) % 60)
+//     let second = Math.floor(elapsedTime / 1000 % 60)
+//     let millisecond = Math.floor(elapsedTime % 1000 / 10)
+
+//     hours = String(hours).padStart(2,"0")
+//     minutes = String(minutes).padStart(2,"0")
+//     second = String(second).padStart(2,"0")
+//     millisecond = String(millisecond).padStart(2,"0")
+
+//     display.textContent = `${hours}:${minutes}:${second}:${millisecond}`
+
+// }
+
+//  <-- ES6 Modules --> An external file that contains reusable code that can be imported into other javascript files. Write reusable code for many different apps. 
+// it can contain variables,classes,functions ...  and  more introduced as part of ECMAScript 2015 update
+
+// a module is simpley a javascript file that exports code(function , variable, classes)  and can import code from other modules
+// adv: * code reusability  we can write a code and used it in multiple files
+// * Encapsulation(private scope)  avriables and functions inside a module theye are not global 
+
+
+// import {PI, getCircuumfernce,getArea,getVolume} from './mathUtil.js'
+// console.log(PI)
+
+// const circumference = getCircuumfernce(10)
+// console.log(`${circumference.toFixed(2)}cm`)
+
+// const area = getArea(10)
+// console.log(`${area .toFixed(2)}cm^2`)
+
+// const volume = getVolume(10)
+// console.log(`${volume.toFixed(2)}cm^3`)
+
+
+// <-- synchronous -->  Executes line by line consecutively in a sequential manner code that waits for an operation to complete.
+// <-- asynchronous --> Allows multiple operations to be performed concurrently without waiting , does not block the exection  flow and allow the program to continue
+// (I/O operations,network request, fetching data)
+// Handled with: callback, promise, async/await
+
+
+// setTimeout(() => console.log("Task 1"),3000)
+// console.log("Task 2")
+// console.log("Task 3")
+// console.log("Task 4")
+
+// function func1(callback){
+//     setTimeout(() => {console.log("Task 1")
+//             callback()},3000)
+// }
+// function func2(){
+//     console.log("Task 2")
+//     console.log("Task 3")
+//     console.log("Task 3")
+//     console.log("Task 4")
+// }
+// func1(func2)
+
+
+// <-- Error --> An object that is created to represent a problem that occurs occur often with user input or establishing a connection
+// try { }  Encloses code that might potentially cause an error 
+// catch {}  Catch and handle any thrown errors from try {}
+// finally {} (optional) Always executes. used mostly for clean up ex. close files, close connections, release resource
+
+// try{
+//     console.log(x)
+//     // NETWORK ERROR
+//     // PROMISE ERROR
+//     // SECURITY ERRORS
+// }
+// catch(error){
+//     console.error(error)
+// }
+// finally{
+//     // CLOSE FILES
+//     // CLOSE CONNECTIONS
+//     // RELEASE RESOURCES
+//     console.log("This always executes")
+// }
+// console.log("You have reached the end")
+
+// eg:2
+// try{
+//     const dividend = Number(window.prompt("Enter a dividend: "))
+//     const divisor = Number(window.prompt("Enter a divisor"))
+
+//     if(divisor == 0){
+//         throw new Error("You can't divide by zero! ")
+//     }
+//     if(isNaN(dividend) || isNaN(divisor)){
+//         throw new Error("value must be a number")
+//     }
+
+//     const result = dividend / divisor
+//     console.log(result)
+// }
+// catch(error){
+//     console.error(error)
+// }
+// console.log("you have reached at the end")
+
+
+
+// calculator program
+const display = document.getElementById("display")
+
+function appendToDisplay(input){
+    display.value += input   // display.value = display.value + input
+}
+
+function clearDisplay(){
+    display.value = ""
+}
+
+function calculate(){
+    try{
+        display.value = eval(display.value)
+    }
+    catch(error){
+        display.value = "Error"
+    }
+}
+
+///                                
