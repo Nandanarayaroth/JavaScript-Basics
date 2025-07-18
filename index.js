@@ -2236,8 +2236,8 @@
 // 1.document.getElementById()  // element or null
 // 2.document.getElementsClassName() // HTML collection
 // 3.document.getElementsByTagName() // html collection
-//4. document.querySelector()      //  first matching element or null
-//5.document.querySelectorAll()   // nodelist
+// 4. document.querySelector()      //  first matching element or null
+// 5.document.querySelectorAll()   // nodelist
 
 // 1
 // const myHeading = document.getElementById("my-heading")
@@ -2297,8 +2297,201 @@
 // const fruit = document.querySelectorAll(".fruits")
 // fruit[2].style.backgroundColor = "yellow"
 
-const food = document.querySelectorAll("li")
-food.forEach(food => {
-    food.style.backgroundColor = "yellow"
-})
-//        
+// const food = document.querySelectorAll("li")
+// food.forEach(food => {
+//     food.style.backgroundColor = "yellow"
+// })
+
+
+// <-- DOM NAVIGATION -->    the process of navigating through the structure of an HTMl document using javascript
+// .firstElementChild
+// .lastElementChild
+// .nextElementSibling
+// .previousElementSibling
+// .parentElement
+// .children
+
+
+// ```` .firstElementChild ````````
+// const element = document.getElementById("fruits")
+// const firstchild = element.firstElementChild    // it return first child element of the fruite
+// firstchild.style.backgroundColor = 'yellow'
+
+// const element = document.getElementById("Vegetables")
+// const firstchild = element.firstElementChild
+// firstchild.style.backgroundColor = "yellow"
+
+// const ulElements = document.querySelectorAll("ul")  // it select all ul 
+// ulElements.forEach(ulElement => {
+//     const firstchild = ulElement.firstElementChild
+//     firstchild.style.backgroundColor = "yellow"
+// })
+
+// ````` .lastElementChild `````
+// const element = document.getElementById("Vegetables")
+// const lastChild = element.lastElementChild    // it return last element of the vegetables
+// lastChild.style.backgroundColor = "yellow"
+
+// const dessert = document.getElementById("desserts")
+// const lastelement = dessert.lastElementChild
+// lastelement.style.backgroundColor = "lightgreen"
+
+// const ulElement = document.querySelectorAll("ul")  // it select all ul 
+
+// ulElement.forEach(ulElements => {
+//     const lastChild = ulElements.lastElementChild
+//     lastChild.style.backgroundColor = "yellow"
+// })
+
+// ``````` .nextElementSibling `````````
+// const apple = document.getElementById("apple")
+// const next = apple.nextElementSibling   // returns the next sibling of apple
+// next.style.backgroundColor = "yellow"
+
+// const banana = document.getElementById("orange") // returns next sibling of orange
+// const next = banana.nextElementSibling
+// next.style.backgroundColor = "orange"
+
+// const banana = document.getElementById("banana")
+// const element = banana.nextElementSibling
+// element.style.backgroundColor = "yellow"  // it does not returns any thing because of banana is the last element
+
+// const banana = document.getElementById("fruits")
+//  const element = banana.nextElementSibling
+//  element.style.backgroundColor = "yellow"     // it returns next ul sibling of fruits
+
+// const veg = document.getElementById("Vegetables")
+// const all = veg.nextElementSibling
+// all.style.backgroundColor = "yellow"      // it does not return anything because of it is the last ul element
+
+// ``````` .previousElementSibling ````````````
+// const veg = document.getElementById("onion")
+// const prev = veg.previousElementSibling          // it returns the previous sibling of onion
+// prev.style.backgroundColor = "yellow"
+
+// const dessert = document.getElementById("pie")
+// const element = dessert.previousElementSibling
+// element.style.backgroundColor = "yellow"
+
+// const apple = document.getElementById("apple")
+// const prev = apple.previousElementSibling
+// prev.style.backgroundColor = "yellow"             // it does not return any thing because apple is the first element there is no previous element  
+
+// `````` parentElement ``````````
+// const element = document.getElementById("orange")
+// const parent = element.parentElement
+// parent.style.backgroundColor = "yellow"    // it returns the full color on parent here yellow color visible in elements inside the parent (fruits) that means apple,oraange,banana are visible in yellow color
+
+// const element = document.getElementById("banana")
+// const result = element.parentElement
+// result.style.backgroundColor = "yellow"
+
+// const content = document.getElementById("vegetables")
+// const out = content.parentElement
+// out.style.backgroundColor = "orange"         // it returns the enteir window as orange because of the parent class of vegetable ul is body 
+
+// ``````````` .children ``````````
+// const element = document.getElementById("desserts")
+// const child = element.children
+// console.log(child)
+
+// const wow = document.getElementById("fruits")
+// const result = wow.children
+// // result.style.backgroundColor = "yellow"  here we can't apply background color like this because it is a group of html elments (<li>apple</li>,<li>orange</li>,<li>banana</li>) so that is not worked but we can impplement this by using a loop
+// console.log(result)
+// for(let i = 0; i < result.length; i++){
+//     result[i].style.backgroundColor = "yellow"
+// }
+
+// we can also give background color like this
+// const element = document.getElementById("fruits")
+// const child = element.children
+// Array.from(child).forEach(childre => {
+//     childre.style.backgroundColor = "yellow"
+// })
+
+// const ele = document.getElementById("fruits")
+// const children = ele.children
+// children[0].style.backgroundColor = "yellow"   // it returns the color on first child element of fruits
+
+
+// ADD/CHANGE HTML USING JAVASCRIPT
+// step 1. create the element
+// step 2. add attributes/properties
+// step 3. append element to dom
+// remove html element
+
+// step1 create the element
+
+// const newH1 = document.createElement("h1")
+
+// step2 add attributes/properties
+
+// newH1.textContent = "I like pizza"
+// newH1.id = "myH1"
+// newH1.style.color = "tomato"
+// newH1.style.textAlign ="center"
+
+//step3 append element to dom
+
+// document.body.append(newH1) // at the end of the screen
+// document.body.prepend(newH1)   // at starting of the screen(it become first child)
+// document.getElementById("box1").append(newH1) // inside of the box1
+// document.getElementById("box1").prepend(newH1)
+// document.getElementById("box2").append(newH1) // inside of the box2
+
+// const box2 = document.getElementById("box2")
+// document.body.insertBefore(newH1, box2)     // it insert newH1 before box2
+
+// const box4 = document.getElementById("box4")
+// document.body.insertBefore(newH1, box3)
+
+// const boxes = document.querySelectorAll(".box")
+// document.body.insertBefore(newH1, boxes[2])
+
+//step4 remove html element
+
+// document.getElementById("box1").removeChild(newH1)
+
+
+// eg:2
+// const newListItem = document.createElement("li") // 1. creating element
+// newListItem.textContent = "coconut"   // 2.adding atributes and css property 
+// newListItem.id = "coconut"
+// newListItem.style.fontWeight = "bold"
+// newListItem.style.backgroundColor = "lightgreen"
+
+
+// document.body.append(newListItem)        //3. apped element to dom
+// document.body.prepend(newListItem)
+// document.getElementById("fruits").append(newListItem) // it make cocnut as last element of fruits ol
+// document.getElementById("fruits").prepend(newListItem)
+
+// const orange = document.getElementById("orange")
+// document.getElementById("fruits").insertBefore(newListItem,orange)
+// const listItems = document.querySelectorAll("#fruits li")
+// document.getElementById("fruits").insertBefore(newListItem,listItems[4])
+
+
+// practice |\/
+// const newH1 = document.createElement("h1")
+// newH1.textContent = "I like pizza"
+// newH1.id = "myH1"
+// newH1.style.color = "tomato"
+// newH1.style.textAlign = "center"
+// // document.body.append(newH1)
+// // document.body.prepend(newH1)
+// document.getElementById("box1").append(newH1)
+
+
+//eg2
+const newListItem = document.createElement("li")
+newListItem.textContent = "coconut"
+newListItem.id = "cocnut"
+newListItem.style.fontWeight = "bold"
+newListItem.style.backgroundColor = "lightgreen"
+// document.body.append(newListItem)
+document.body.prepend(newListItem)
+
+//                
+    
