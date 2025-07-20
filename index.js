@@ -732,10 +732,10 @@
 
 // <-- ARRAY -->   a variable like structure that can hold more than 1 value
 
-let fruits = ["apple", "orange","banana"]
+// let fruits = ["apple", "orange","banana"]
 
-fruits[2] = "coconut"// it replace value at index 2 (banana) into coconut
-console.log(fruits)
+// fruits[2] = "coconut"// it replace value at index 2 (banana) into coconut
+// console.log(fruits)
 // fruits.push("coconut")   // push new value array at the end of array 
 // fruits.pop()           // it pop the last value of array
 // fruits.unshift("mango")   // it add mango at the starting of the array
@@ -2496,3 +2496,4 @@ newListItem.style.backgroundColor = "lightgreen"
 const orange = document.getElementById("orange")
 document.getElementById("fruits").insertBefore(newListItem, orange)
 
+//                
