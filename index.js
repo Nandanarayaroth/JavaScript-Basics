@@ -3162,62 +3162,122 @@ buttons.forEach(button => {
 
 // practices |\/ 
 
-function  walkDog(){
+// function  walkDog(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const done = true
+
+//             if(done){
+//                 resolve("You walk the dog 🐕")
+//             }
+//             else{
+//                 reject("You didn't walk the dog")
+//             }
+//         },1500)
+//     })
+// }
+// function cleanKitchen(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const done = true
+//             if(done){
+//                 resolve("you clean the kitchen 🧹")
+//             }
+//             else{
+//                 reject("you didn't clean the kitchen")
+//             }
+//         }, 2000)
+//     } )
+// }
+// function takeoutTrash(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const done = false  
+//             if(done){
+//                 resolve("you take out the trash 🗑️")
+//             }
+//             else{
+//                 reject("you didn't take out the trash")
+//             }
+//         },500)
+//     })
+// }
+// function cookedFood(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const done = true
+//             if(done){
+//                 resolve("you cooked food")
+//             }
+//             else{
+//                 reject("you didn't cooked food")
+//             }
+//         },3000)
+//     })
+// }
+// walkDog().then(value => {console.log(value); return cleanKitchen()})
+// .then(value => {console.log(value);return takeoutTrash()})
+// .then(value => {console.log(value);return cookedFood()} )
+// .then(value => {console.log(value);console.log("you finished all works")})
+// .catch(error => console.error(error))
+
+
+// <-- ASYNC/AWAIT --> => Async = make a function return a promise
+//                     => Await = makes an async function wait for a promise
+// Allow you write asynchronous code in a synchronous manner Async doesn't have resolve or reject parameters Everything after Await is placed in an event queue 
+
+function walkDog() {
     return new Promise((resolve,reject) => {
         setTimeout(() => {
-            const done = true
-
-            if(done){
+            const dogwalked = true
+            if(dogwalked){
                 resolve("You walk the dog 🐕")
             }
             else{
-                reject("You didn't walk the dog")
+                reject("You DIDN'T walk the dog")
             }
-        },1500)
+        },1000)
     })
 }
-function cleanKitchen(){
+function cleanKitchen() {
     return new Promise((resolve,reject) => {
         setTimeout(() => {
-            const done = true
-            if(done){
-                resolve("you clean the kitchen 🧹")
+            const cleaned = true
+            if(cleaned){
+                resolve("you cleaned the kitchen")
             }
             else{
-                reject("you didn't clean the kitchen")
+                reject("You didn't clean the kitchen")
             }
-        }, 2000)
-    } )
-}
-function takeoutTrash(){
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            const done = false  
-            if(done){
-                resolve("you take out the trash 🗑️")
-            }
-            else{
-                reject("you didn't take out the trash")
-            }
-        },500)
+        },1500)
     })
 }
 function cookedFood(){
     return new Promise((resolve,reject) => {
         setTimeout(() => {
-            const done = true
-            if(done){
-                resolve("you cooked food")
+            const cooked = true
+            if(cooked){
+                resolve("You cooked the food")
             }
             else{
-                reject("you didn't cooked food")
+                reject("You didn't cook the food")
             }
-        },3000)
+        },2000)
     })
 }
-walkDog().then(value => {console.log(value); return cleanKitchen()})
-.then(value => {console.log(value);return takeoutTrash()})
-.then(value => {console.log(value);return cookedFood()} )
-.then(value => {console.log(value);console.log("you finished all works")})
-.catch(error => console.error(error))
-//                 
+
+async function doChores() {
+    const walkDogResult = await walkDog()
+    console.log(walkDogResult)
+
+    const claning = await cleanKitchen()
+    console.log(claning)
+
+    const cooking = await cookedFood()
+    console.log(cooking)
+
+    console.log("You finished all the chores!")
+}
+doChores()
+
+//               
