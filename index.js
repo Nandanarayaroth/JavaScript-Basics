@@ -2683,13 +2683,134 @@
 //     })
 // })
 
+// <== CLASSLIST ==>  it is a element property in javascript used to interact with an element's list of classes(css classes), allow you to make reusable classes for many elements across your webpage.
+// it is a special javascript tool used for (dynamically) add,remove or check css classes on an html element
+// add() to add a class
+// remove() to remove a class
+//toggle() to reove class if it is present there if it is not present add that class
+// replace(oldClass,newClass) it replace oldclass to newclass
+// contains("class")  it check a class is exists or not
 
+// const myButton = document.getElementById("myButton")
+// myButton.classList.add("enabled")   // to add the class enabled(dynamically)
+// myButton.classList.remove("enabled") // to remove 
+// myButton.classList.add("hover")
+// myButton.addEventListener("mouseover", event => {  // triger the class hover when the mouseover the button
+//     event.target.classList.add("hover")
+// })
+// myButton.addEventListener("mouseout", event => {  // it remove the class hover when the mouse out from the button
+//     event.target.classList.remove("hover")
+// })
+
+// toggle() is first check if the class is present or not if it is not present the class is add otherwise it remove the class like add() and remove()
+// myButton.classList.toggle("hover")
+// myButton.addEventListener("mouseover", event => {
+//     event.target.classList.toggle("hover")
+// })
+// myButton.addEventListener("mouseout", event => {
+//     event.target.classList.toggle("hover")
+// })
+
+// myButton.classList.add("enabled")
+
+// myButton.addEventListener("click", event => {
+//     event.target.classList.replace("enabled","disabled")
+// })
+
+// const myH1 = document.getElementById("myH1")
+// const myButton = document.getElementById("myButton")
+
+// myH1.classList.add("enabled")
+// myH1.addEventListener("click", event => {
+//     if(event.target.classList.contains("disabled")){
+//         event.target.textContent += "😵‍💫"
+//     }else{
+//         event.target.classList.replace("enabled", "disabled")
+//     }
+// })
+
+// myButton.classList.add("enabled")
+
+// myButton.addEventListener("click", event => {
+//     if(event.target.classList.contains("disabled")){
+//         event.target.textContent += "😵‍💫"
+//     }
+//     else{
+//         event.target.classList.replace("enabled", "disabled")
+//         // event.target.textContent = "Hello Button"
+//     }
+// })
+
+let buttons = document.querySelectorAll("#myButton")
+
+buttons.forEach(button => {
+    button.classList.add("enabled")
+})
+
+// buttons.forEach(button => {
+//     button.addEventListener("mouseover", event => {
+//         event.target.classList.add("hover")
+//     })
+// })
+// buttons.forEach(button => {
+//     button.addEventListener("mouseout",event => {
+//         event.target.classList.remove("hover")
+//     })
+// })
+
+// buttons.forEach(button => {
+//     button.addEventListener("mouseover",event => {
+//         event.target.classList.toggle("hover")
+//     })
+// })
+
+// buttons.forEach(button => {
+//     button.addEventListener("mouseout" ,event => {
+//         event.target.classList.toggle("hover")
+//     })
+// })
+
+// buttons.forEach(button => {
+//     button.addEventListener("click",event => {
+//         if(event.target.classList.contains("disabled")){
+//             event.target.textContent += "😵‍💫"
+//         }
+//         else{
+//             event.target.classList.replace("enabled","disabled")
+//         }
+        
+//     })
+// })
+
+//                    
+
+// buttons.forEach(button => {
+//     button.addEventListener("mouseover", event => {
+//         event.target.classList.toggle("hover")
+//     })
+// })
+
+// buttons.forEach(button => {
+//     button.addEventListener("click", event => {
+//         if(event.target.classList.contains("disabled")){
+//             event.target.textContent += "😵‍💫"
+//         }
+//         else{
+//             event.target.classList.replace("enabled", "disabled")
+//         }
+//     })
+// })
+
+//                  
+
+ 
 // <-- classList --> element property in javascript used to interact with an element's list of classes (css classes). allow you to make reusable classes for many elements across your webpage.
+// it is a special javascript tool used to add,remove, or check css classes on an HTML element.
 // add()
 // remove()
 // toggle(Remove if present, Add if not)
 // replace(oldClass,newClass)
-// contains()
+// contains()check the element has that class
 
 // const myButton = document.getElementById("myButton")
 // // myButton.classList.add("enabled")
@@ -2758,4 +2879,345 @@
 // })
 
 // ROCK AND PAPER SCISSOR
-//      
+// const choices = ["rock","paper","scissors"]
+// const playerDisplay = document.getElementById("playerDisplay")
+// const computerDisplay = document.getElementById("computerDisplay")
+// const resultDisplay = document.getElementById("resultDisplay")
+// const playerScoreDisplay = document.getElementById("playerScoreDisplay")
+// const ComputerScoreDisplay = document.getElementById("ComputerScoreDisplay")
+// playerScore = 0
+// computerScore = 0
+
+// function playGame(playerChoice){
+//     const computerChoices = choices[Math.floor(Math.random() *3)]
+//     let result = ""
+
+//     // console.log(computerChoices)
+//     if(playerChoice === computerChoices){
+//         result = "IT'S A TIE"
+//     }
+//     else{
+//         switch(playerChoice){
+//             case "rock":
+//                 result = (computerChoices === "scissors") ? "YOU WIN!" : "YOU LOSE!"
+//                 break;
+//             case "paper":
+//                 result = (computerChoices === "rock") ? "YOU WIN!" : "YOU LOSE!"
+//                 break
+//             case "scissors":
+//                 result = (computerChoices === "paper") ? "YOU WIN!" : "YOU LOSE!"
+//                 break
+//         }
+//     }
+
+//     playerDisplay.textContent = `PLAYER: ${playerChoice}`
+//     computerDisplay.textContent = `Computer: ${computerChoices}`
+//     resultDisplay.textContent = result
+
+//     resultDisplay.classList.remove("greenText", "redText")
+
+//     switch(result){
+//         case "YOU WIN!":
+//             resultDisplay.classList.add("greenText")
+//             playerScore++
+//             playerScoreDisplay.textContent = playerScore
+//             break
+//         case "YOU LOSE!":
+//             resultDisplay.classList.add("redText")
+//             computerScore++
+//             ComputerScoreDisplay.textContent = computerScore
+//             break
+//         // case "IT'S A TIE":
+//         //     resultDisplay.classList.remove("greenText","redText")
+//         //     break
+//     }
+// }
+
+
+// IMAGE SLIDER
+
+// const slides = document.querySelectorAll(".slides img")
+// let slideIndex = 0
+// let intervalId = null
+
+// // initializeSlider()
+// document.addEventListener("DOMContentLoaded", initializeSlider) // when the page finishes loading then run initializeslider() function
+
+// function initializeSlider(){
+//     if(slides.length > 0){
+//         slides[slideIndex].classList.add("displaySlide")
+//         intervalId = setInterval(nextSlide, 5000)
+//     }
+    
+//     // console.log(intervalId)
+
+// }
+// function showSlide(index){
+
+//     if( index >= slides.length){
+//         slideIndex = 0
+//     }
+//     else if( index < 0){
+//         slideIndex = slides.length - 1
+//     }
+
+//     slides.forEach(slide => {
+//         slide.classList.remove("displaySlide")
+//     })
+//     slides[slideIndex].classList.add("displaySlide")
+
+// }
+// function prevSlide(){
+
+//     slideIndex--
+//     showSlide(slideIndex)
+// }
+// function nextSlide(){
+//     slideIndex++
+//     showSlide(slideIndex)
+// }
+
+
+// <-- CALLBACK HELL --> it is a situation in javascript where callbacks are nested within other callbacks to the degree where the code is difficult to read.
+//  old (old solution) pattern to handle asynchronous functions. Use (solution) promise + async/await to avoid callback hell
+
+// this is asynchronous function (it make waiting) that make callback hell here
+// synchronous function(it doesn't make waiting ) it doesn't make callback becoouse ther is no waiting
+
+// synchronous function ->  no waitiing
+// function task1(){
+//     setTimeout(() => {
+//         console.log("task 1 complete")
+//     },1000)
+// }
+// function task2(){
+//     setTimeout(() => {
+//         console.log("task 2 complete")
+//     })
+// }
+// function task3(){
+//     setTimeout(() => {
+//         console.log("task 3 complete")
+//     })
+// }
+// task1()
+// task2()
+// task3()
+// console.log("All tasks are completed")
+
+//asynchronous function -> waiting
+// function task1(callback){
+//     setTimeout(() => {
+//         console.log("task 1 complete")
+//         callback()
+//     }, 1000)
+    
+// }
+// function task2(callback){
+//     setTimeout(()=> {
+//         console.log("task 2 complete")
+//         callback()
+//     }, 2000)
+    
+// }
+// function task3(callback){
+//     setTimeout(() => {
+//         console.log("task 3 complete")
+//         callback()
+//     }, 3000)
+    
+// }
+// function task4(callback){
+//     setTimeout(() => {
+//         console.log("task 4 complete")
+//         callback()
+//     },1500)
+    
+// }
+// function task5(callback){
+//     setTimeout(() => {
+//         console.log("task 5 complete")
+//         callback()
+//     },2000)
+// }
+
+// task1(() => {
+//     task2(() =>{
+//         task3(() =>{
+//             task4(() => {
+//                 task5 ( () => console.log("All tasks complete"))
+//             })
+//         })
+//     })
+// })
+
+
+// <-- PROMISE --> An object that manages asynchronous operations.
+// wrap a promise object around {asynchronous code}
+// "I promise to return a value" that value -> resolved or rejected
+// new promise (resolve,reject) => {asynchronous code}
+
+// function walkDog(callback){
+//     setTimeout(() =>{
+//         console.log("You walk the dog 🐕")
+//         callback()
+//     },1500)
+// }
+// function cleanKitchen(callback){
+//     setTimeout(() => {
+//         console.log("You clean the kitchen 🧹")
+//         callback()
+//     },2500)
+// }
+// function takeoutTrash(callback){
+//     setTimeout(() => {
+//         console.log("You take out the trash 🗑️")
+//         callback()
+//     },500)
+// }
+
+// walkDog(() => {    // it is a callback  to avoid that we use promise
+//     cleanKitchen(() => {
+//         takeoutTrash(() => console.log("You finished all the chores!"))  
+//     })
+// })
+
+// with promise()
+// function walkDog(){
+    
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("You walk the dog 🐕")
+            
+//          },1500)
+//     })
+// }
+// function cleanKitchen(){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("you clean the kitchen 🧹")
+//         }, 2500)
+//     })
+// }
+// function takeoutTrash(){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("You take out the trash 🗑️ ")
+//         },500)
+//     })
+// }
+
+// walkDog().then(value => {console.log(value); return cleanKitchen()}).then(value => {console.log(value); return takeoutTrash()})
+//         .then(value => {console.log(value); console.log("you finished all the works")})
+
+
+// // with reject
+// function walkDog(){
+
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const dogwalked = true
+
+//             if(dogwalked){
+//                 resolve("You walk the dog 🐕")
+//             }
+//             else{
+//                 reject("You didn't walk the dog")
+//             }
+//         },1500)
+//     })
+// }
+// function cleanKitchen(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const clean = true
+
+//             if(clean){
+//                 resolve("you clean the kitchen 🧹")
+//             }
+//             else{
+//                 reject("you didn't clean the kitchen")
+//             }
+//         },2500)
+//     })
+// }
+// function takeoutTrash(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const trash = false
+//             if(trash){
+//                 resolve("you take out the trash 🗑️")
+//             }
+//             else{
+//                 reject("you didn't take out the trash")
+//             }
+//         },500)
+//     })
+// }
+
+// walkDog().then(value => {console.log(value); return cleanKitchen() })
+//         .then(value => {console.log(value); return takeoutTrash()})
+//         .then(value => {console.log(value); console.log("You finished all works")})
+//         .catch(error => console.error(error))
+
+// practices |\/ 
+
+function  walkDog(){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            const done = true
+
+            if(done){
+                resolve("You walk the dog 🐕")
+            }
+            else{
+                reject("You didn't walk the dog")
+            }
+        },1500)
+    })
+}
+function cleanKitchen(){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            const done = true
+            if(done){
+                resolve("you clean the kitchen 🧹")
+            }
+            else{
+                reject("you didn't clean the kitchen")
+            }
+        }, 2000)
+    } )
+}
+function takeoutTrash(){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            const done = false  
+            if(done){
+                resolve("you take out the trash 🗑️")
+            }
+            else{
+                reject("you didn't take out the trash")
+            }
+        },500)
+    })
+}
+function cookedFood(){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            const done = true
+            if(done){
+                resolve("you cooked food")
+            }
+            else{
+                reject("you didn't cooked food")
+            }
+        },3000)
+    })
+}
+walkDog().then(value => {console.log(value); return cleanKitchen()})
+.then(value => {console.log(value);return takeoutTrash()})
+.then(value => {console.log(value);return cookedFood()} )
+.then(value => {console.log(value);console.log("you finished all works")})
+.catch(error => console.error(error))
+//                 

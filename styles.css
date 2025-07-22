@@ -558,7 +558,37 @@ button:hover{
     color: hsl(0, 0%, 80%);
  } */
 
-body{
+
+/* #over{
+    display: flex;
+    flex-direction: column;
+}
+#myH1{
+    font-size: 5rem;
+}
+#myButton{
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    width: 400px;
+    border-radius: 5px;
+    /* padding: 10px 15px; */
+    /* padding: 15px 10px;
+}
+.enabled{
+    background-color: rgb(96, 96, 236);
+    color: white;
+}
+.hover{
+    box-shadow: 0 0 10px grey;
+    font-weight: bold;
+}
+.disabled{
+    background-color: hsl(0, 0%, 60%);
+    color: hsl(0 , 0%, 80%);
+}  */
+
+/* body{
     font-family: Arial,sans-serif;
     font-weight: bold;
     margin: 0;
@@ -592,3 +622,66 @@ h1{
     font-size: 5rem;
     margin: 30px 0;
 }
+.scoreDisplay{
+    font-size: 2rem;
+}
+.greenText, #playerScoreDisplay{
+    color: greenyellow;
+}
+.redText, #ComputerScoreDisplay{
+    color: tomato;
+} */
+
+
+.slider{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    
+}
+.slider img{
+    /* width: 100%; */
+    display: none;
+}
+.slides{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    /* margin: 80px; */
+}
+img.displaySlide{
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+.slider button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 10px 15px;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.previous{
+    left: 0;
+}
+.next{
+    right: 0;
+}
+@keyframes fade{
+    from {opacity: .5}
+    to {opacity: 1}
+}
+
+/*    
+
+
+
+*/
