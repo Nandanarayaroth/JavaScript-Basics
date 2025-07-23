@@ -3224,60 +3224,252 @@ buttons.forEach(button => {
 
 // <-- ASYNC/AWAIT --> => Async = make a function return a promise
 //                     => Await = makes an async function wait for a promise
-// Allow you write asynchronous code in a synchronous manner Async doesn't have resolve or reject parameters Everything after Await is placed in an event queue 
+// Allow you write asynchronous code in a synchronous manner Async doesn't have resolve or reject parameters Everything after Await is placed in an event queue
+// async/await make the code simpler , it used instead of .then that make the code messy asyn/await used to avoid that 
+// adv -> * cleaner syntax, * Easier to read , *works great with try/catch for error handling, * Avoids callback hell
 
-function walkDog() {
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            const dogwalked = true
-            if(dogwalked){
-                resolve("You walk the dog 🐕")
-            }
-            else{
-                reject("You DIDN'T walk the dog")
-            }
-        },1000)
-    })
+// function walkDog() {
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const dogwalked = true
+//             if(dogwalked){
+//                 resolve("You walk the dog 🐕")
+//             }
+//             else{
+//                 reject("You DIDN'T walk the dog")
+//             }
+//         },1000)
+//     })
+// }
+// function cleanKitchen() {
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const cleaned = true
+//             if(cleaned){
+//                 resolve("you cleaned the kitchen")
+//             }
+//             else{
+//                 reject("You didn't clean the kitchen")
+//             }
+//         },1500)
+//     })
+// }
+// function cookedFood(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             const cooked = true
+//             if(cooked){
+//                 resolve("You cooked the food")
+//             }
+//             else{
+//                 reject("You didn't cook the food")
+//             }
+//         },2000)
+//     })
+// }
+
+// async function doChores() {
+//     try{
+//         const walkDogResult = await walkDog()
+//         console.log(walkDogResult)
+
+//         const claning = await cleanKitchen()
+//         console.log(claning)
+
+//         const cooking = await cookedFood()
+//         console.log(cooking)
+
+//         console.log("You finished all the chores!")
+//     }
+//     catch(error){
+//         console.error(error)
+//     }
+    
+// }
+// doChores()
+
+// <-- JSON --> (JavaScript Objecct Notation) data-interchange format used for exchanging data between a server and a web application JSON files {key:value} OR [value1, value2, value3]
+// JSON.stringify() = converts a JS object to a JSON string.
+// JSON.parse() = convert a JSON string to a JS object
+// json is a light weight format for storing and exchanging data  json is not for javascript it supported in almost all programming languages python,java,c# ,php,etc
+
+// by using  .stringify()
+// const names = ["Spongebob", "Patrick", "Squidward","Sandy"]
+// const person = {
+//     "name" : "Spongebob",
+//     "age" : 30,
+//     "isEmployed" : true,
+//     "hobbies" : ["Jellyfishing", "Karate", "Cooking"]
+// }
+// const people = [{
+//     "name" : "Spongebob",
+//     "age" : 30,
+//     "isEmployed" : true
+// },
+// {
+//     "name" : "Patrick",
+//     "age" : 34,
+//     "isEmployed" : false
+// },
+// {
+//     "name" : "Squidward",
+//     "age" : 50,
+//     "isEmployed" : true
+// },
+// {
+//     "name" : "Sandy" ,
+//     "age" : 27,
+//     "isEmployed" : false
+// }]
+// const jsonString = JSON.stringify(names)    // it convert the names array into string -> it convert js object into json string
+// console.log(jsonString)
+
+// const jsonString2 = JSON.stringify(person)
+// console.log(jsonString2)
+
+// const jsonString3 = JSON.stringify(people)
+// console.log(jsonString3)
+
+
+// by using  .parse()
+
+// const jsonName = `["Spongebob", "Patrick", "Squidward" ,"Sandy"]`           // all are in the form of json string 
+// const jsonPerson = `{"name": "Spongebob", "age" : 30, "isEmployed" : true, "hobbies" : ["Jellyfishing","Karate", "Cookking"]}`
+// const people = `[{"name" : "Spongebob", "age" : 30, "isEmployed" : true},
+//                 {"name" : "Patrick", "age" : 34, "isEmployed" : false},
+//                 {"name" : "Squidward", "age" : 50, "isEmployed" : true},
+//                 {"name" : "Sandy", "age" : 27, "isEmployeed" : false}]`
+
+// const parsedData = JSON.parse(jsonName)        // it cnvert json string into js object
+// console.log(parsedData)
+
+// const parsedData2 = JSON.parse(jsonPerson)
+// console.log(parsedData2)
+
+// const parsedData3 = JSON.parse(people)
+// console.log(parsedData3)
+
+// fetching of json file
+
+// fetch("people.json")    // this uses Fetch API to make an HTTP request to the file person.json the fetch returns a promise
+//     .then(response => response.json())  //.then() waits for the fetch promise to reslove , response.json() is a method that reads the body of the response and tries to parse it as JSON
+//     // .then(value => console.log(value))
+//     .then(values => values.forEach(vaiue => console.log(vaiue.isEmployed)))
+//     .catch(error => console.error(error))
+
+
+// <-- COOKIE -->  a small text file stored on your computer used to remember information about the user saved in name = value pairs
+
+// console.log(navigator.cookieEnabled)
+// document.cookie = "firstName=SpongeBob; expires=Sun, 1 January 2030 12:00:00 UTC; path=/";
+// document.cookie = "lastName=SquarePants; expires=Sun, 1 January 2030 12:00:00 UTC; path=/";
+// console.log(document.cookie)
+
+// document.cookie = "firstName=Patrick; expires=Sun, 1 January 2030 12:00:00 UTC; path=/";
+// document.cookie = "lastName=Star; expires=Sun, 1 January 2030 12:00:00 UTC; path=/";
+// console.log(document.cookie)
+
+// setCookie("email", "Sponge@gmail.com", 365)
+// deleteCookie("firstName")
+// deleteCookie("lastName")
+// deleteCookie("email")
+// console.log(document.cookie)
+
+
+// setCookie("firstName", "SpongeBob", 365)
+// setCookie("lastName", "SquarePants", 365)
+
+// console.log(getCookie("firstName"))
+// console.log(getCookie("lastName"))
+
+// const firstText = document.querySelector("#firstText")
+// const lastText = document.querySelector("#lastText")
+// const submitBtn = document.querySelector("#submitbtn")
+// const cookieBtn = document.querySelector("#cookiesBtn")
+
+// submitBtn.addEventListener("click", () => {
+//     setCookie("firstName", firstText.value, 365)
+//     setCookie("lastName", lastText.value, 365)
+// })
+// cookieBtn.addEventListener("click", () => {
+//     firstText.value = getCookie("firstName")
+//     lastText.value = getCookie("lastName")
+// })
+
+// // deleteCookie("firstName")
+// // deleteCookie("lastName")
+
+// function setCookie(name, value, daysToLive){
+//     const date = new Date()
+//     date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000)
+//     let expires = "expires=" + date.toUTCString()
+//     document.cookie = `${name}=${value}; ${expires}; path=/`
+// }
+// function deleteCookie(name){
+//     setCookie(name, null,null)
+// }
+// function getCookie(name){
+//     const cDecoded = decodeURIComponent(document.cookie)
+//     const cArray = cDecoded.split(";")
+//     let result
+
+//     cArray.forEach(element => {
+//         if(element.indexOf(name)===0){
+//             result = element.substring(name.length + 1);
+//         }
+//     })
+//     return result
+//     // console.log(cArray)
+//     // console.log(cDecoded)
+// }
+
+
+// <-- FETCH --> function used for making HTTP request to fetch resources.(JSON style data, images, files)
+// Simplifies asynchronous data fetching in javascript and used for interacting with API's to retrieve and send data asynchronously over the web. 
+// fetch(url, {options})  => options are method properties like GET by default to get some data, POST  to assin some data, PUT to replace some data, DELETE to delete some data
+
+// fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+//     .then(response => console.log(response))
+//     .then(data => console.log(data.id))
+//     .catch(error => console.log(error))
+
+// fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+//     .then(response => {
+//         if(!response.ok){
+//             throw new Error("Could not fetch resource")
+//         }
+//         return response.json()
+//     })
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error))
+
+// fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+//     .then(response => response.json())
+//     .then(data => console.log(data.id))
+//     .catch(error => console.error(error))
+
+// by using async await
+// fetchData()          Charizard,Mewtwo,Typhlosion
+async function fetchData(){
+    try{
+        const pokemonName = document.getElementById("pokemonName").value.toLowerCase()
+
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+
+        if(!response.ok){
+            throw new Error("Could not fetch resource")
+        }
+        const data = await response.json() // used for the
+        console.log(data)
+
+        const pokemonSprite = data.sprites.front_default
+        const imgElement = document.getElementById("pokemonSprite")
+
+        imgElement.src = pokemonSprite
+        imgElement.style.display = "block"
+    }
+    catch (error){
+        console.log(error)
+    }
 }
-function cleanKitchen() {
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            const cleaned = true
-            if(cleaned){
-                resolve("you cleaned the kitchen")
-            }
-            else{
-                reject("You didn't clean the kitchen")
-            }
-        },1500)
-    })
-}
-function cookedFood(){
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            const cooked = true
-            if(cooked){
-                resolve("You cooked the food")
-            }
-            else{
-                reject("You didn't cook the food")
-            }
-        },2000)
-    })
-}
-
-async function doChores() {
-    const walkDogResult = await walkDog()
-    console.log(walkDogResult)
-
-    const claning = await cleanKitchen()
-    console.log(claning)
-
-    const cooking = await cookedFood()
-    console.log(cooking)
-
-    console.log("You finished all the chores!")
-}
-doChores()
-
-//               
+//         
