@@ -3450,26 +3450,26 @@ buttons.forEach(button => {
 
 // by using async await
 // fetchData()          Charizard,Mewtwo,Typhlosion
-async function fetchData(){
-    try{
-        const pokemonName = document.getElementById("pokemonName").value.toLowerCase()
+// async function fetchData(){
+//     try{
+//         const pokemonName = document.getElementById("pokemonName").value.toLowerCase()
 
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+//         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 
-        if(!response.ok){
-            throw new Error("Could not fetch resource")
-        }
-        const data = await response.json() // used for the
-        console.log(data)
+//         if(!response.ok){
+//             throw new Error("Could not fetch resource")
+//         }
+//         const data = await response.json() // used for the
+//         console.log(data)
 
-        const pokemonSprite = data.sprites.front_default
-        const imgElement = document.getElementById("pokemonSprite")
+//         const pokemonSprite = data.sprites.front_default
+//         const imgElement = document.getElementById("pokemonSprite")
 
-        imgElement.src = pokemonSprite
-        imgElement.style.display = "block"
-    }
-    catch (error){
-        console.log(error)
-    }
-}
+//         imgElement.src = pokemonSprite
+//         imgElement.style.display = "block"
+//     }
+//     catch (error){
+//         console.log(error)
+//     }
+// }
 //         
